@@ -2,7 +2,7 @@
 const Category = () => {
   return (
     <div className="text-center text-[60px]">
-      I had no enough to create this component
+      I had no enough time to create this component
     </div>
   )
 }

@@ -1,11 +1,8 @@
 import {useSelector} from "react-redux"
+import Category from "../Category"
 import { RootState } from "../store"
 
-interface Props {
-    children: JSX.Element,
-  };
-
-const Modal = ({children }: Props) => {
+const Modal = () => {
 
     const category = useSelector((state : RootState) => state.category.categoryIsVisible)
          
@@ -14,7 +11,7 @@ const Modal = ({children }: Props) => {
     ${category ? `justify-center items-center flex` : `hidden`}`}>
         <div className={`relative w-[100%] ${category && `h-[580px]`}
         rounded-[15px] bg-white m-auto justify-center items-center flex`} onClick={(e) => e.stopPropagation()}>
-            {children}
+            <Category/>
         </div>
     </div>
   )

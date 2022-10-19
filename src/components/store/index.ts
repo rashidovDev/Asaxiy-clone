@@ -1,9 +1,14 @@
 import {configureStore} from "@reduxjs/toolkit"
 import categorySlice from "./Slices/categorySlice";
-
+import oneClickSlice from "./Slices/oneClickSlice";
+import productSlice  from "./Slices/productSlice";
 
 const store = configureStore({
-    reducer : {category : categorySlice}
+    reducer : {
+        category : categorySlice,
+        product : productSlice,
+        oneClick : oneClickSlice
+    }
 })
 
 export default store;
