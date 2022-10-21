@@ -1,11 +1,11 @@
 import {useDispatch, useSelector} from "react-redux"
 import { RootState } from "../store"
 import { productAction } from "../store/Slices/productSlice"
-import { IProduct as Props } from "../../data"
-import ProductItem from "../ProductItem"
+import { IProduct as Props } from "../Menu"
+import ProductItem from "../Product/ProductItem"
 
 interface IProps {
-  value : Props["product"] | null
+  value : Props
 }
 
 const Modal : React.FC<IProps> = ({value}) => {

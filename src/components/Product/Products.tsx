@@ -1,18 +1,29 @@
-import { books, products } from "../data"
+import { books, products } from "../../data"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { IProduct as Props } from "../data";
+import { IProduct as Props } from "../Menu";
 import { useDispatch } from "react-redux";
-import { productAction } from "./store/Slices/productSlice";
-import { oneClickAction } from "./store/Slices/oneClickSlice";
+import { productAction } from "../store/Slices/productSlice";
+import { oneClickAction } from "../store/Slices/oneClickSlice";
+import { cartAction } from "../store/Slices/cartSlice";
+import {useState} from "react"
+import { favouriteAction } from "../store/Slices/favourite";
+
 
 interface IProps {
-  setValue: React.Dispatch<React.SetStateAction<Props["product"] | null>>
+  setValue: React.Dispatch<React.SetStateAction<Props>>
   setOpen :  React.Dispatch<React.SetStateAction<boolean>>
+  value : Props
 }
 
-const Products : React.FC <IProps> = ({setOpen,setValue}) => {
+const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
 
   const dispatch = useDispatch()
+
+  const [fill, setFill] = useState<boolean>(false)
+
+  const getFavouriteColor = () => {
+      setFill(!fill)
+  }
    
   const openOneClick = () => {
     dispatch(oneClickAction.toggle())
@@ -39,7 +50,7 @@ const Products : React.FC <IProps> = ({setOpen,setValue}) => {
               <p className="absolute top-4 left-4 text-slate-500
               font-semibold text-[18px]">Книги</p>
               <img className="absolute top-2 right-2"
-              src={require("../assets/products/logo1.png")} alt="logo1" />
+              src={require("../../assets/products/logo1.png")} alt="logo1" />
         </div>
         <div className='md:w-[75%] grid grid-cols-4 gap-4'>
              
@@ -49,6 +60,7 @@ const Products : React.FC <IProps> = ({setOpen,setValue}) => {
               <img className="w-[70%] m-auto h-[180px]"
               src={product.image}
                alt="product" />
+              
               <p className="text-[15px] font-semibold py-3">{product.heading}</p>
               <p className="text-[20px] font-semibold">{product.price}</p>
               <p className="text-slate-700">{product.monthPrice} so'm/ 12 oy</p>
@@ -57,7 +69,6 @@ const Products : React.FC <IProps> = ({setOpen,setValue}) => {
               onClick={() => {
                 openToggle()
                 setValue(
-                  [
                     {
                        id : product.id,
                        image : product.image,
@@ -65,9 +76,8 @@ const Products : React.FC <IProps> = ({setOpen,setValue}) => {
                        rate : product.rate,
                        price : product.price,
                        monthPrice : product.monthPrice,
-                       comment : product.comment
+                       comment : product.comment,
                     }
-                  ]
               )
               }}
               className="bg-[#00CD98] mr-3 rounded-[10px] p-2 text-[12px]
@@ -76,11 +86,35 @@ const Products : React.FC <IProps> = ({setOpen,setValue}) => {
               className="bg-[#008DFF] text-[12px] rounded-[10px] p-2 text-[#fff]"
               >Купить в 1 клик</button>
               </div>
-              <div className="absolute top-3 right-3">
+              <div
+              onClick={() => {
+                dispatch(cartAction.addItemToCart( 
+                  {
+                    id : product.id,
+                    heading : product.heading,
+                    image : product.image,
+                    price : product.price,
+                  }
+                ))
+              }}
+
+              className="absolute top-3 right-3 cursor-pointer">
               <ShoppingCartIcon sx={{padding:"5px",background:"#008DFF",color:"#fff", borderRadius:"8px"}}/>
               </div>
-              <img className = "w-[20px] h-[20px] absolute top-12 right-4"
-              src={require("../assets/products/unfill.png")}
+              <img  
+               onClick={() => {
+                dispatch(favouriteAction.addItemToFavourite(
+                  {
+                    id : product.id,
+                    heading : product.heading,
+                    image : product.image,
+                    price : product.price
+                  }
+                ))
+              }}
+              className = "w-[20px] h-[20px] absolute top-12 right-4"
+              
+              src={require(`../../assets/products/${ fill ? `filled.png` : `unfill.png` }`)}
               alt="unfill" />
              </div>
              ))}

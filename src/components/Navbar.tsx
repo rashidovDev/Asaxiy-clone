@@ -1,5 +1,5 @@
 import SearchIcon from '@mui/icons-material/Search';
-import {FC} from "react"
+import {FC, useState} from "react"
 import { Link } from 'react-router-dom';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import FireTruckIcon from '@mui/icons-material/FireTruck';
@@ -15,17 +15,22 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { navigation } from '../data';
 import { useDispatch, useSelector } from 'react-redux';
 import { categoryAction } from './store/Slices/categorySlice';
+import Cart from './Cart/Cart';
 
 
 const Navbar : FC = () => {
 
   const category = useSelector((state : RootState)  => state.category.categoryIsVisible)
+  const totalQuantity = useSelector((state : RootState) => state.cartSlice.totalQuantity)
+  const favouriteQuantity = useSelector((state : RootState) => state.favourite.totalFavourite)
 
   const dispatch = useDispatch()
 
   const openCloseToggle = () => {
     dispatch(categoryAction.toggle())
   }
+
+  const [drop, setDrop] = useState<boolean>(false)
 
   return (
     <nav className=''>
@@ -43,32 +48,39 @@ const Navbar : FC = () => {
         </div>
         <div className='flex items-center'>
            
-            <div className='flex flex-col items-center ml-3'>
+            <div className='flex flex-col items-center cursor-pointer  ml-3'>
             <CreditCardIcon sx={{fontSize : "40px"}}/>
             <Link className='text-[15px] no-underline' to="/">
                 Оплатить
             </Link>
             </div>
-            <div className='flex flex-col items-center ml-3'>
+            <div 
+           
+            className={`flex flex-col items-center cursor-pointer  ml-3`}>
             <FireTruckIcon sx={{fontSize : "40px"}}/>
             <Link className='text-[15px] no-underline' to="/">
             Отследить
             </Link>
+           
             </div>
-            <div className='flex flex-col items-center ml-3'>
+            <div className='flex flex-col items-center cursor-pointer  ml-3'>
             <LanguageIcon sx={{fontSize : "40px"}}/>
             <Link className='text-[15px] no-underline' to="/">
             Русский
             </Link>
             </div>
-            <div className='flex flex-col items-center ml-3 relative '>
+            <div
+             onMouseEnter={() => setDrop(true)}
+             onMouseLeave={() => setDrop(false)}
+            className='flex flex-col items-center  ml-3 relative'>
             <ShoppingCartIcon sx={{fontSize : "40px"}}/>
             <Link className='text-[15px] no-underline' to="/">
             Корзинка
             </Link>
             <p className='absolute top-1 right-4
             w-[16px] h-[16px] flex justify-center items-center rounded-full text-[12px]
-             text-[#fff] bg-[#008DFF]'>12</p>
+             text-[#fff] bg-[#008DFF]'>{totalQuantity}</p>
+              {drop && <Cart/>} 
             </div>
             <div className='flex flex-col items-center ml-3 relative'>
             <FavoriteBorderIcon sx={{fontSize : "40px"}}/>
@@ -77,7 +89,7 @@ const Navbar : FC = () => {
             </Link>
             <p className='absolute top-1 right-4
             w-[16px] h-[16px] flex justify-center items-center rounded-full text-[12px]
-             text-[#fff] bg-[#008DFF]'>12</p>
+             text-[#fff] bg-[#008DFF]'>{favouriteQuantity}</p>
             </div>
             <div className='flex flex-col items-center ml-3 '>
             <AccountCircleIcon sx={{fontSize : "40px"}}/>
@@ -104,7 +116,6 @@ const Navbar : FC = () => {
         {
             navigation.map((item, idx) => (
                 <div  key={idx} className="flex items-center " >
-                  
                 <Link className='no-underline mr-[7 0px] text-[16px]
                 text-[#222] font-semibold ' 
                 to={item.href}>

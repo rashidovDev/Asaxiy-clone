@@ -114,7 +114,8 @@ export interface IProduct {
         rate : number,
         price : number,
         monthPrice : number, 
-        comment : number
+        comment : number,
+        quantity? : number,
     }[]
 }
 
