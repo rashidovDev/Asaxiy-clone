@@ -31,3 +31,13 @@ code {
 .cart{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+nav{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.shadow{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.over{
+  max-height:240px;
+    overflow:hidden
+}

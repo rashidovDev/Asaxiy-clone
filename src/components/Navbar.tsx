@@ -31,9 +31,15 @@ const Navbar : FC = () => {
   }
 
   const [drop, setDrop] = useState<boolean>(false)
+  const [fix, setFix] = useState<boolean>(false)
+
+  const getCart = () => {
+      setFix(!fix)
+  }
+  console.log(fix)
 
   return (
-    <nav className=''>
+    <nav className='bg-[#fff]'>
         {/* TOP */}
         <div className='hg'>
         <div className='flex items-center w-[90%] m-auto py-3 justify-between'>
@@ -70,8 +76,12 @@ const Navbar : FC = () => {
             </Link>
             </div>
             <div
-             onMouseEnter={() => setDrop(true)}
-             onMouseLeave={() => setDrop(false)}
+             onMouseEnter={() => 
+              fix ? setDrop(drop) : setDrop(true)
+              }
+             onMouseLeave={() =>
+              fix ? setDrop(drop) : setDrop(false)}
+              onClick={getCart}
             className='flex flex-col items-center  ml-3 relative'>
             <ShoppingCartIcon sx={{fontSize : "40px"}}/>
             <Link className='text-[15px] no-underline' to="/">

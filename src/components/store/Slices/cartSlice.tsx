@@ -26,7 +26,7 @@ export interface CounterState {
     quantity : number
   }
 
-  const initialState: CounterState = {
+   const initialState: CounterState = {
     items: [],
     totalQuantity: 0,
     totalAmount: 0,

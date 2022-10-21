@@ -20,10 +20,6 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
   const dispatch = useDispatch()
 
   const [fill, setFill] = useState<boolean>(false)
-
-  const getFavouriteColor = () => {
-      setFill(!fill)
-  }
    
   const openOneClick = () => {
     dispatch(oneClickAction.toggle())
@@ -111,14 +107,13 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
                     price : product.price
                   }
                 ))
+                setFill(product.like === true)
               }}
-              className = "w-[20px] h-[20px] absolute top-12 right-4"
-              
-              src={require(`../../assets/products/${ fill ? `filled.png` : `unfill.png` }`)}
+              className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer"
+              src={require(`../../assets/products/${product.like ? `filled.png` : `unfill.png` }`)}
               alt="unfill" />
              </div>
              ))}
-
         </div>
     </div>
   )

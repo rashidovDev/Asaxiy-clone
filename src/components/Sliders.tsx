@@ -12,7 +12,7 @@ const Sliders = () => {
     slidesToScroll: 1
   };
   return (
-    <div className='md:w-[90%] m-auto flex justify-between'>
+    <div className='md:w-[90%] m-auto mt-4 flex justify-between'>
         <div className='md:w-[73%]'>
         <Slider {...settings}>
           {slider.map((item,idx) => (

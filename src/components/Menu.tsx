@@ -1,7 +1,6 @@
 import {FC, useState} from 'react'
-import {Navbar, Sliders, Products,ProductModal,CategoryModal,OneClickModal} 
+import {Navbar, Sliders, Products,ProductModal,CategoryModal,OneClickModal, About,Footer} 
 from "./navigate"
-import ProductItem from './Product/ProductItem'
 
 export type IProduct = {
   id : number | string,
@@ -29,13 +28,15 @@ const Menu : FC = () => {
 
   return (
     <>
+    <div className='bg-[#F4F7FD]'>
     <Navbar/>
     <OneClickModal/>
     <CategoryModal/>
     <ProductModal value={value}/>
-    <div className='bg-[#F4F7FD]'>
     <Sliders/>
     <Products setOpen={setOpen} value={value} setValue={setValue}/>
+    <About/>
+    <Footer/>
     </div>
     </>
   )
