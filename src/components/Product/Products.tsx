@@ -7,6 +7,9 @@ import { oneClickAction } from "../store/Slices/oneClickSlice";
 import { cartAction } from "../store/Slices/cartSlice";
 import {useState} from "react"
 import { favouriteAction } from "../store/Slices/favourite";
+import Star from "../Star";
+import Sliders from "../Sliders";
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 
 interface IProps {
@@ -30,6 +33,8 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
   }
 
   return (
+     <>
+      <Sliders/>
     <div className='w-[90%] m-auto flex mt-5'>
         <div className='md:w-[23%] mr-5 py-[70px] books 
         relative rounded-[10px] bg-white'>
@@ -57,8 +62,12 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
               src={product.image}
                alt="product" />
               
-              <p className="text-[15px] font-semibold py-3">{product.heading}</p>
-              <p className="text-[20px] font-semibold">{product.price}</p>
+              <p className="text-[15px] font-semibold h-[50px] pt-3">{product.heading}</p>
+              <div className="flex justify-start items-center ">
+                <div className="pr-3"><Star rate={product.rate}/></div>
+                <div className="text-[13px] text-slate-400 "><span></span><span className="font-semibold"><ChatBubbleOutlineIcon sx={{ fontSize : "13px"}}/>  отзывов</span></div>
+              </div>
+              <p className="text-[20px] my-[1px] font-semibold">{product.price}</p>
               <p className="text-slate-700">{product.monthPrice} so'm/ 12 oy</p>
               <div className="flex items-center absolute bottom-3">
               <button 
@@ -116,6 +125,7 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
              ))}
         </div>
     </div>
+     </>
   )
 }
 

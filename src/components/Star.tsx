@@ -1,15 +1,17 @@
- import React from 'react'
+interface IStar {
+    rate : number | string
+}
 
-// const Star = ({product}) => {
-//   return (
-//     <div className="flex justify-center md:justify-start">
-//     <img className="ml-2" src={require(`../../assets/Products/${product.rate >= 1 ? `star1.png` : `star5.png`}`)} alt="start" />
-//     <img className="ml-2" src={require(`../../assets/Products/${product.rate >= 2 ? `star1.png` : `star5.png`}`)} alt="start" />
-//     <img className="ml-2" src={require(`../../assets/Products/${product.rate >= 3 ? `star1.png` : `star5.png`}`)} alt="start" />
-//     <img className="ml-2" src={require(`../../assets/Products/${product.rate >= 4 ? `star1.png` : `star5.png`}`)} alt="start" />
-//     <img className="ml-2" src={require(`../../assets/Products/${product.rate === 5 ? `star1.png` : `star5.png`}`)} alt="start" />
-//   </div>
-//   )
-// }
+const Star : React.FC <IStar> = ({rate}) => {
+  return (
+     <div className="flex justify-center md:justify-start">
+     <img className="ml-2 w-[14px]" src={require(`../assets/products/${rate >= 1 ? `bluestar.png` : `whitestar.png`}`)} alt="start" />
+     <img className="ml-2 w-[14px]" src={require(`../assets/products/${rate >= 2 ? `bluestar.png` : `whitestar.png`}`)} alt="start" />
+    <img className="ml-2 w-[14px]" src={require(`../assets/products/${rate >= 3 ? `bluestar.png` : `whitestar.png`}`)} alt="start" />
+    <img className="ml-2 w-[14px]" src={require(`../assets/products/${rate >= 4 ? `bluestar.png` : `whitestar.png`}`)} alt="start" />
+    <img className="ml-2 w-[14px]" src={require(`../assets/products/${rate === 5 ? `bluestar.png` : `whitestar.png`}`)} alt="start" />
+  </div>
+   )
+ }
 
-// export default Star
+export default Star

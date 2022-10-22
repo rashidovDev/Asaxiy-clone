@@ -7,8 +7,7 @@ import { cartAction } from "../store/Slices/cartSlice";
 const CartItem : React.FC = () => {
 
   const cartItem = useSelector((state : RootState) => state.cartSlice.items)
-  const totalPrice = useSelector((state : RootState) => state.cartSlice.totalAmount)
-
+  const totalAmount = useSelector(( state : RootState) => state.cartSlice.totalAmount)
   const dispatch = useDispatch()
 
   return (
@@ -34,7 +33,7 @@ const CartItem : React.FC = () => {
           <div className="p-3">
              <div className="flex justify-between items-center">
               <p>Сумма</p>
-              <p>{totalPrice}</p>
+              <p>{totalAmount}</p>
              </div>
              <div className="flex flex-col justify-center ">
              <button className="w-[80%] py-[12px]  rounded-[10px] text-[#fff] text-[20px] bg-[#008DFF] m-auto mb-3">Оформить покупку</button>

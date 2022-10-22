@@ -1,8 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {IProducts} from "./cartSlice"
 
-interface IFavourite {
-    favourites : any,
+
+ interface IFavourite {
+    favourites : IProducts["product"],
     totalFavourite : number,
+    quantity? : number
 }
 
 const initialState : IFavourite = {
@@ -16,26 +19,56 @@ const favouriteSlice = createSlice({
     reducers: {
         addItemToFavourite(state : IFavourite, action : PayloadAction<any>){
             const newItem = action.payload;
-            const existingItem = state.favourites.find((item : any) => item.id === newItem.id)
-            if(!existingItem){
-                state.totalFavourite++
+            const existingItem = state.favourites.find((item) => item.id === newItem.id)
+            if(!existingItem){        
                 state.favourites.push(  
                 {
                   id : newItem.id,
                   heading: newItem.heading,
+                  quantity: 1,
                   price:newItem.price,
                   image : newItem.image
                 })
+          }else if(existingItem){
+           existingItem.quantity++
           }
-            else if(state.totalFavourite >= 1){
-                state.totalFavourite--
-            }
-            else if(state.totalFavourite === 0){
-                state.totalFavourite++
-            }
         }
     }
 })
 
 export const favouriteAction = favouriteSlice.actions;
 export default favouriteSlice.reducer;
+
+
+// reducers: {
+//     addItemToCart(state : CounterState, action : PayloadAction<any>){
+//         const newItem = action.payload;
+//         const existingItem = state.items.find((item) => item.id === newItem.id)
+//         state.totalQuantity++
+//         if(!existingItem){
+//                   state.items.push({...action.payload, quantity : 1})
+//         }else{
+//             existingItem.quantity++
+//             existingItem.price = existingItem.price + newItem.price
+//         }
+//         state.totalAmount = state.items.reduce(
+//           (total:number, item:any) => total + (item.price) * (item.quantity),0
+//           );
+//     },
+    
+//     deleteItem(state : CounterState, action : PayloadAction<any> ) {
+//         const id = action.payload;
+//         const existingItem = state.items.find((item : any) => item.id === id);
+  
+//         if (existingItem) {
+//           state.items = state.items.filter((item : any) => item.id !== id);
+//           state.totalQuantity = state.totalQuantity - existingItem.quantity;
+//         }
+  
+//         state.totalAmount = state.items.reduce(
+//           (total : number, item : any) => total + Number(item.price) * Number(item.quantity),
+//           0
+//         );
+//       },
+// }
+// })

@@ -1,5 +1,6 @@
 import {FC, useState} from 'react'
-import {Navbar, Sliders, Products,ProductModal,CategoryModal,OneClickModal, About,Footer} 
+import { Routes, Route } from "react-router-dom";
+import {Navbar, Favourite, Sliders, Products,ProductModal,CategoryModal,OneClickModal, About,Footer} 
 from "./navigate"
 
 export type IProduct = {
@@ -30,11 +31,14 @@ const Menu : FC = () => {
     <>
     <div className='bg-[#F4F7FD]'>
     <Navbar/>
+
     <OneClickModal/>
     <CategoryModal/>
     <ProductModal value={value}/>
-    <Sliders/>
-    <Products setOpen={setOpen} value={value} setValue={setValue}/>
+     <Routes>
+      <Route path='/' element={<Products setOpen={setOpen} value={value} setValue={setValue}/>}/>
+      <Route path='/favourite' element={<Favourite/>}/>
+     </Routes>
     <About/>
     <Footer/>
     </div>

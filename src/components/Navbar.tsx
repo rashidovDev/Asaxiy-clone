@@ -21,8 +21,8 @@ import Cart from './Cart/Cart';
 const Navbar : FC = () => {
 
   const category = useSelector((state : RootState)  => state.category.categoryIsVisible)
-  const totalQuantity = useSelector((state : RootState) => state.cartSlice.totalQuantity)
   const favouriteQuantity = useSelector((state : RootState) => state.favourite.totalFavourite)
+  const totalQuantity = useSelector((state : RootState) => state.cartSlice.totalQuantity)
 
   const dispatch = useDispatch()
 
@@ -82,7 +82,7 @@ const Navbar : FC = () => {
              onMouseLeave={() =>
               fix ? setDrop(drop) : setDrop(false)}
               onClick={getCart}
-            className='flex flex-col items-center  ml-3 relative'>
+            className={`flex flex-col items-center  ml-3 relative`}>
             <ShoppingCartIcon sx={{fontSize : "40px"}}/>
             <Link className='text-[15px] no-underline' to="/">
             Корзинка
@@ -90,7 +90,7 @@ const Navbar : FC = () => {
             <p className='absolute top-1 right-4
             w-[16px] h-[16px] flex justify-center items-center rounded-full text-[12px]
              text-[#fff] bg-[#008DFF]'>{totalQuantity}</p>
-              {drop && <Cart/>} 
+              {drop && <Cart fix={fix}/>} 
             </div>
             <div className='flex flex-col items-center ml-3 relative'>
             <FavoriteBorderIcon sx={{fontSize : "40px"}}/>
