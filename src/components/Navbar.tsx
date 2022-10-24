@@ -17,11 +17,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { categoryAction } from './store/Slices/categorySlice';
 import Cart from './Cart/Cart';
 
-
 const Navbar : FC = () => {
 
+  const favourites = useSelector((state : RootState) => state.favouriteSlice.favourites)
   const category = useSelector((state : RootState)  => state.category.categoryIsVisible)
-  const favouriteQuantity = useSelector((state : RootState) => state.favourite.totalFavourite)
+  const favouriteQuantity = useSelector((state : RootState) => state.favouriteSlice.totalFavourite)
   const totalQuantity = useSelector((state : RootState) => state.cartSlice.totalQuantity)
 
   const dispatch = useDispatch()
@@ -92,15 +92,15 @@ const Navbar : FC = () => {
              text-[#fff] bg-[#008DFF]'>{totalQuantity}</p>
               {drop && <Cart fix={fix}/>} 
             </div>
-            <div className='flex flex-col items-center ml-3 relative'>
-            <FavoriteBorderIcon sx={{fontSize : "40px"}}/>
-            <Link className='text-[15px] no-underline relative' to="/">
+            <Link to="/favourite" className='flex flex-col no-underline  items-center ml-3 relative'>
+            <FavoriteBorderIcon sx={{fontSize : "40px", color:"#333"}}/>
+            <Link className='text-[15px] no-underline relative' to="/favourite">
             Избранное
             </Link>
             <p className='absolute top-1 right-4
             w-[16px] h-[16px] flex justify-center items-center rounded-full text-[12px]
              text-[#fff] bg-[#008DFF]'>{favouriteQuantity}</p>
-            </div>
+            </Link>
             <div className='flex flex-col items-center ml-3 '>
             <AccountCircleIcon sx={{fontSize : "40px"}}/>
             <Link className='text-[15px] no-underline' to="/">

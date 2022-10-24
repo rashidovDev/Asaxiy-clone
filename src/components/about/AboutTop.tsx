@@ -7,7 +7,7 @@ const AboutTop : React.FC  = () => {
   const [text2, setText2] = useState<boolean>(false)
 
   return (
-    <div className="bg-[#fff] p-4 rounded-[15px] mb-5">
+    <div className="bg-[#fff] p-4 rounded-[15px] mb-5 w-[90%] m-auto mt-5">
       <p className="text-[35px]  font-bold">{about.heading}</p>
       <p className="text-[17px]">{about.title}</p>
       <div className="border text-slate-300 rounded-[15px]">

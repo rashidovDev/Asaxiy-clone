@@ -6,11 +6,11 @@ export interface INavigation {
 export const navigation : INavigation[] = [
     {
         href : "/",
-        name : "Новости"
+        name : "Новинки"
     },
     {
         href : "/",
-        name : "Новинки"
+        name : "Одежды"
     },
     {
         href : "/",
@@ -19,10 +19,6 @@ export const navigation : INavigation[] = [
     {
         href : "/",
         name : "Книги"
-    },
-    {
-        href : "/",
-        name : "Мебель"
     },
     {
         href : "/",
@@ -91,19 +87,7 @@ export const books = [
         image : require("./assets/books/4.png"),
         heading : "Дарон Ажемўғли, Жеймс А. Робинсон",
         title : "Asaxiy books kitoblari"
-    },
-    {
-        id : 4, 
-        image : require("./assets/books/4.png"),
-        heading : "Дарон Ажемўғли, Жеймс А. Робинсон",
-        title : "Asaxiy books kitoblari"
-    },
-    {
-        id : 4, 
-        image : require("./assets/books/4.png"),
-        heading : "Дарон Ажемўғли, Жеймс А. Робинсон",
-        title : "Asaxiy books kitoblari"
-    },
+    }
 ]
 
 export interface IProduct {
@@ -116,7 +100,9 @@ export interface IProduct {
         monthPrice : number, 
         comment : number,
         quantity? : number,
-        like : boolean
+        like : boolean,
+        type : string,
+        new : boolean
     }[]
 }
 
@@ -129,7 +115,9 @@ export const products : IProduct["product"] = [
         price : 119000,
         monthPrice : 13900,
         comment : 3,
-        like : false
+        like : false,
+        type : "clothes",
+        new : false
     },
     {
         id : 2,
@@ -139,7 +127,9 @@ export const products : IProduct["product"] = [
         price : 269000,
         monthPrice : 32600,
         comment : 5,
-        like : false
+        like : false,
+        type : "gadget",
+        new : true
     },
     {
         id : 3,
@@ -149,7 +139,9 @@ export const products : IProduct["product"] = [
         price : 4083000,
         monthPrice : 439000,
         comment : 4,
-        like : false
+        like : false,
+        type : "gadget",
+        new : true
     },
     {
         id : 4,
@@ -159,7 +151,9 @@ export const products : IProduct["product"] = [
         price : 999000,
         monthPrice : 109000,
         comment : 2,
-        like : false
+        like : false,
+        type : "book",
+        new : true
     },
     {
         id : 5,
@@ -169,7 +163,9 @@ export const products : IProduct["product"] = [
         price : 60000,
         monthPrice : 6600,
         comment : 2,
-        like : false
+        like : false,
+        type : "book",
+        new : true
     },
     {
         id : 6,
@@ -179,7 +175,9 @@ export const products : IProduct["product"] = [
         price : 155999000,
         monthPrice : 1929000,
         comment : 7,
-        like : false
+        like : false,
+        type : "new",
+        new : false
     },
     {
         id : 7,
@@ -189,7 +187,9 @@ export const products : IProduct["product"] = [
         price : 119000,
         monthPrice : 13900,
         comment : 3,
-        like : false
+        like : false,
+        type : "gadget",
+        new : false
     },
     {
         id : 8,
@@ -199,7 +199,9 @@ export const products : IProduct["product"] = [
         price : 999000,
         monthPrice : 109000,
         comment : 2,
-        like : false
+        like : false,
+        type : "book",
+        new : true
     },
     {
         id : 9,
@@ -209,7 +211,9 @@ export const products : IProduct["product"] = [
         price : 60000,
         monthPrice : 6600,
         comment : 2,
-        like : false
+        like : false,
+        type : "book",
+        new : true
     },
     {
         id : 10,
@@ -219,7 +223,249 @@ export const products : IProduct["product"] = [
         price : 155999000,
         monthPrice : 1929000,
         comment : 7,
-        like : false
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 11,
+        image : require("./assets/products/8.png"),
+        heading : "Клавиатура A4TECH Bloody B865N USB Red Switch",
+        rate : 4,
+        price : 506000,
+        monthPrice : 58600,
+        comment : 8,
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 12,
+        image : require("./assets/products/9.png"),
+        heading : "Беспроводная мышь A4tech G3-760N Black/Orange",
+        rate : 4,
+        price : 196000 ,
+        monthPrice : 22700,
+        comment : 5,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 13,
+        image : require("./assets/products/10.png"),
+        heading : "Наушники HUAWEI FreeBuds 4i Black",
+        rate : 4,
+        price : 799000,
+        monthPrice : 93300,
+        comment : 5,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 14,
+        image : require("./assets/products/11.png"),
+        heading : "Смартфон HUAWEI nova Y70 4/64GB Midnight black",
+        rate : 5,
+        price : 2360000,
+        monthPrice : 287200,
+        comment : 10,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 15,
+        image : require("./assets/products/12.png"),
+        heading : "Проводные наушники Xiaomi Mi Pro HD (Серебряные)",
+        rate : 3,
+        price : 99000 ,
+        monthPrice : 11600,
+        comment : 1,
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 16,
+        image : require("./assets/products/13.png"),
+        heading : "Адаптер Смарт ТВ Xiaomi Mi TV Stick 4K HDR",
+        rate : 4,
+        price : 645000,
+        monthPrice : 77300,
+        comment : 7,
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 17,
+        image : require("./assets/products/14.png"),
+        heading : "Беспроводные наушники Razer Barracuda X Black",
+        rate : 5,
+        price : 1150000,
+        monthPrice : 137800,
+        comment : 2,
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 18,
+        image : require("./assets/products/15.png"),
+        heading : "Смарт браслет Xiaomi Mi Band 7 Black",
+        rate : 4,
+        price : 529000,
+        monthPrice : 63400,
+        comment : 6,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 19,
+        image : require("./assets/products/16.png"),
+        heading : "Смартфон Xiaomi Redmi Note 11 4/128 GB Gray (Global version)",
+        rate : 5,
+        price :2599000,
+        monthPrice : 297100,
+        comment : 4,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 20,
+        image : require("./assets/products/17.png"),
+        heading : "Миксер авто",
+        rate : 5,
+        price : 1599000,
+        monthPrice : 119000,
+        comment : 4,
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 21,
+        image : require("./assets/products/18.png"),
+        heading : "Ноутбук Apple MacBook Air 13 8GB/512GB 2020",
+        rate : 5,
+        price : 14929000,
+        monthPrice : 1840700,
+        comment : 4,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 22,
+        image : require("./assets/products/19.png"),
+        heading : "Ноутбук Lenovo V15 / Intel i3-10110 / DDR4 4GB",
+        rate : 4,
+        price : 4034000 ,
+        monthPrice : 471200,
+        comment : 5,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 23,
+        image : require("./assets/products/20.png"),
+        heading : "Ноутбук Asus X515J / Intel i3-1005 / DDR4 8GB",
+        rate : 5,
+        price : 4968000,
+        monthPrice : 618500,
+        comment : 3,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 24,
+        image : require("./assets/products/21.png"),
+        heading : "Принтер Canon Pixma G2415 (Струйный, А4)",
+        rate : 5,
+        price : 2149000,
+        monthPrice : 254800,
+        comment : 3,
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 25,
+        image : require("./assets/products/22.png"),
+        heading : "Ноутбук Acer Aspire 3 A315-34-C5Y3. Intel Celeron",
+        rate : 4,
+        price :3519000,
+        monthPrice : 419700,
+        comment : 4,
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 26,
+        image : require("./assets/products/23.png"),
+        heading : "Кондиционер ZIFFLER Monaco 09 Inverter",
+        rate : 3,
+        price : 4740000,
+        monthPrice :4841000,
+        comment : 2,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 27,
+        image : require("./assets/products/24.png"),
+        heading : "Кондиционер Midea Cold Low voltage 12",
+        rate : 5,
+        price : 5204000,
+        monthPrice : 647900,
+        comment : 3,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 28,
+        image : require("./assets/products/25.png"),
+        heading : "Кондиционер Sitronic Snow DC Inverter 12",
+        rate : 4,
+        price : 5547000,
+        monthPrice : 692100,
+        comment : 1,
+        like : false,
+        type : "new",
+        new : true
+    },
+    {
+        id : 29,
+        image : require("./assets/products/26.png"),
+        heading : "Кондиционер Sitronic Snow DC Inverter 09",
+        rate : 3,
+        price : 5405000,
+        monthPrice : 647900,
+        comment : 2,
+        like : false,
+        type : "new",
+        new : false
+    },
+    {
+        id : 30,
+        image : require("./assets/products/27.png"),
+        heading : "Кондиционер Sitronic Mars Inverter 12",
+        rate : 5,
+        price : 5547000 ,
+        monthPrice : 692100,
+        comment : 1,
+        like : false,
+        type : "new",
+        new : true
     },
 ]
 

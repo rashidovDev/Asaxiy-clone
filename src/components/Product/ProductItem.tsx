@@ -2,14 +2,13 @@ import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import {IProduct as Props} from "../Menu"
 import { cartAction } from '../store/Slices/cartSlice';
-import productSlice, { productAction } from '../store/Slices/productSlice';
+import { productAction } from '../store/Slices/productSlice';
 
 interface IProduct {
     value : Props,
 }
 
 const ProductItem : React.FC <IProduct> = ({value}) => {
-
   const dispatch = useDispatch();
 
   const closeToggle = () => {
@@ -35,22 +34,22 @@ const addToCart = () => {
               <div className='border w-[150px] p-3 shad text-center font-[400]
                rounded-[10px] border-slate-300 '>
                 <p>3 месяц</p>
-                <p>49 600 сум</p>
+                <p>{value.price/2} сум</p>
               </div>
               <div className='border w-[150px] p-3 shad text-center font-[400]
                rounded-[10px] border-slate-300 '>
-                <p>3 месяц</p>
-                <p>49 600 сум</p>
+                <p>6 месяц</p>
+                <p>{value.price/4} сум</p>
               </div>
               <div className='border w-[150px] p-3 shad text-center font-[400]
                rounded-[10px] border-slate-300 '>
-                <p>3 месяц</p>
-                <p>49 600 сум</p>
+                <p>9 месяц</p>
+                <p>{value.price/5} сум</p>
               </div>
               <div className='border w-[150px] p-3 shad text-center font-[400]
                rounded-[10px] border-slate-300 '>
-                <p>3 месяц</p>
-                <p>49 600 сум</p>
+                <p>12 месяц</p>
+                <p>{value.price/8} сум</p>
               </div>
               
             </div>
@@ -62,8 +61,10 @@ const addToCart = () => {
             <div className='flex justify-between items-center'>
               <div><p>Оставить заявку :</p></div>
               <button 
+              onClick={closeToggle} 
               className='p-3 bg-[#FE7300]  text-[#fff] rounded-[10px]'>Позвонить</button>
-              <button
+              <button 
+              onClick={closeToggle}
                className='p-3 bg-[#00CD98] text-[#fff] rounded-[10px]'>Через ВОТ</button>
               <button
               onClick={() => {

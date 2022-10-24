@@ -20,7 +20,8 @@ const favouriteSlice = createSlice({
         addItemToFavourite(state : IFavourite, action : PayloadAction<any>){
             const newItem = action.payload;
             const existingItem = state.favourites.find((item) => item.id === newItem.id)
-            if(!existingItem){        
+            if(!existingItem){
+                state.totalFavourite++
                 state.favourites.push(  
                 {
                   id : newItem.id,
@@ -30,9 +31,24 @@ const favouriteSlice = createSlice({
                   image : newItem.image
                 })
           }else if(existingItem){
-           existingItem.quantity++
+             if(existingItem.quantity >= 1){
+                existingItem.quantity--
+                state.totalFavourite--
+             }else{
+                existingItem.quantity++
+                state.totalFavourite++
+             }
           }
-        }
+        },
+        deleteItem(state : IFavourite, action : PayloadAction<any> ) {
+            const id = action.payload;
+            const existingItem = state.favourites.find((item : any) => item.id === id);
+      
+            if (existingItem) {
+              state.favourites = state.favourites.filter((item : any) => item.id !== id);
+              state.totalFavourite = state.totalFavourite - existingItem.quantity;
+            }
+        },
     }
 })
 

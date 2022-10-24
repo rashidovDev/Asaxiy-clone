@@ -1,5 +1,6 @@
 import {FC, useState} from 'react'
 import { Routes, Route } from "react-router-dom";
+import AboutTop from './about/AboutTop';
 import {Navbar, Favourite, Sliders, Products,ProductModal,CategoryModal,OneClickModal, About,Footer} 
 from "./navigate"
 
@@ -36,6 +37,7 @@ const Menu : FC = () => {
     <CategoryModal/>
     <ProductModal value={value}/>
      <Routes>
+     
       <Route path='/' element={<Products setOpen={setOpen} value={value} setValue={setValue}/>}/>
       <Route path='/favourite' element={<Favourite/>}/>
      </Routes>

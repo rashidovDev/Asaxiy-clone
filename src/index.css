@@ -37,7 +37,42 @@ nav{
 .shadow{
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+.shadow1{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 .over{
   max-height:240px;
     overflow:hidden
 }
+
+/* PAGINATION */
+.paginationButtons{
+  width: 100%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+ }
+ .paginationButtons a{
+   padding: 10px;
+   margin: 8px;
+   border-radius: 5px;
+   border: 1px solid #008DFF;
+   color: #008DFF;
+   cursor: pointer;
+   transition: 0.3s;
+   text-decoration: none;
+ }
+ 
+ .paginationButtons a:hover{
+   background-color: #008DFF;
+ }
+
+ .paginationActive a{
+  background-color: #008DFF;
+  color: #fff;
+}
+
+
+
+ 
+ 

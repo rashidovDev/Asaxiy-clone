@@ -6,10 +6,12 @@ import { productAction } from "../store/Slices/productSlice";
 import { oneClickAction } from "../store/Slices/oneClickSlice";
 import { cartAction } from "../store/Slices/cartSlice";
 import {useState} from "react"
-import { favouriteAction } from "../store/Slices/favourite";
+import { favouriteAction } from "../store/Slices/favouriteSlice";
 import Star from "../Star";
 import Sliders from "../Sliders";
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import AboutTop from "../about/AboutTop";
+import ReactPaginate from "react-paginate"
 
 
 interface IProps {
@@ -32,11 +34,22 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
     dispatch(productAction.toggle())
   }
 
+  const [pageNumber, setPageNumber] = useState<number>(0)
+
+  const usersPerPage : number = 8;
+  const pagesVisited : number = pageNumber * usersPerPage;
+
+  const pageCount = Math.ceil(products.length / usersPerPage);
+
+  const changePage = ({selected} : any) => {
+    setPageNumber(selected)
+  }
+
   return (
      <>
       <Sliders/>
     <div className='w-[90%] m-auto flex mt-5'>
-        <div className='md:w-[23%] mr-5 py-[70px] books 
+        <div className='md:w-[23%] mr-5 pt-[70px] books 
         relative rounded-[10px] bg-white'>
           {books.map((book, idx) => (
             <div key={idx} className="flex justify-between px-3 py-4 border-b border-slate-200">
@@ -53,19 +66,21 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
               <img className="absolute top-2 right-2"
               src={require("../../assets/products/logo1.png")} alt="logo1" />
         </div>
-        <div className='md:w-[75%] grid grid-cols-4 gap-4'>
+        <div className='md:w-[75%] grid grid-cols-4 gap-4 relative pb-[110px]'>
              
-             {products.map((product, idx) => (
+             {products.slice(pagesVisited, pagesVisited + usersPerPage)
+             .map((product, idx) => (
 
-             <div key={idx + 1} className="rounded-[12px] bg-[#fff]  p-3 books relative">
-              <img className="w-[70%] m-auto h-[180px]"
+             <div key={idx + 1} className="rounded-[12px] bg-[#fff]  p-3 books relative md:h-[400px]">
+              <img className="w-[70%] m-auto h-[160px]"
               src={product.image}
                alt="product" />
               
-              <p className="text-[15px] font-semibold h-[50px] pt-3">{product.heading}</p>
+              <p className="text-[15px] font-semibold h-[50px] pt-3 truncate">{product.heading}</p>
               <div className="flex justify-start items-center ">
                 <div className="pr-3"><Star rate={product.rate}/></div>
-                <div className="text-[13px] text-slate-400 "><span></span><span className="font-semibold"><ChatBubbleOutlineIcon sx={{ fontSize : "13px"}}/>  отзывов</span></div>
+                <div className="text-[13px] text-slate-400 "><span></span><span className="font-semi
+                bold"><ChatBubbleOutlineIcon sx={{ fontSize : "13px"}}/> {product.comment} отзывов</span></div>
               </div>
               <p className="text-[20px] my-[1px] font-semibold">{product.price}</p>
               <p className="text-slate-700">{product.monthPrice} so'm/ 12 oy</p>
@@ -102,7 +117,6 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
                   }
                 ))
               }}
-
               className="absolute top-3 right-3 cursor-pointer">
               <ShoppingCartIcon sx={{padding:"5px",background:"#008DFF",color:"#fff", borderRadius:"8px"}}/>
               </div>
@@ -116,15 +130,28 @@ const Products : React.FC <IProps> = ({setOpen,setValue,value}) => {
                     price : product.price
                   }
                 ))
-                setFill(product.like === true)
               }}
               className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer"
-              src={require(`../../assets/products/${product.like ? `filled.png` : `unfill.png` }`)}
+              src={require(`../../assets/products/${fill ?  `filled.png` : `unfill.png`}`)}
               alt="unfill" />
              </div>
              ))}
+             <div className='absolute bottom-0 right-5'>
+    <ReactPaginate 
+          previousLabel={"Previous"}
+          nextLabel = {"Next"}
+          pageCount = {pageCount}
+          onPageChange = {changePage}
+          containerClassName = {"paginationButtons"}
+          previousLinkClassName = {"previousButton"}
+          nextLinkClassName =  {"nextButton"}
+          disabledClassName = {"paginationDisabled"}
+          activeClassName = {"paginationActive"}
+          />
+    </div>
         </div>
     </div>
+    <AboutTop/>
      </>
   )
 }
