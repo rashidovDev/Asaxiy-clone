@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "./store"
 import { cartAction } from "./store/Slices/cartSlice"
 import { favouriteAction } from "./store/Slices/favouriteSlice"
+import MySelect from "./utils/selection/MySelect"
 
 const Favourite : React.FC = () => {
 
@@ -13,7 +14,6 @@ const Favourite : React.FC = () => {
     <div className="w-[70%] m-auto my-4">
         <div className="flex justify-between items-center mb-[25px]">
             <div className="text-[32px] font-semibold">Избранное</div>
-            <div>Избранное</div>
         </div>
         <div>
 

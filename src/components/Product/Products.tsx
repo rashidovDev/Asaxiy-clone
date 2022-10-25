@@ -12,6 +12,7 @@ import Sliders from "../Sliders";
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import AboutTop from "../about/AboutTop";
 import ReactPaginate from "react-paginate"
+import Like from "./Like";
 
 interface IProps {
   setValue: React.Dispatch<React.SetStateAction<Props>>
@@ -21,8 +22,9 @@ interface IProps {
 const Products : React.FC <IProps> = ({setValue,value}) => {
   const dispatch = useDispatch()
 
-  const [fill, setFill] = useState<boolean>(false)
-   
+  const [fill, setFill] = useState<string | number>("")
+  console.log(fill)
+
   const openOneClick = () => {
     dispatch(oneClickAction.toggle())
   }
@@ -116,7 +118,7 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
               className="absolute top-3 right-3 cursor-pointer">
               <ShoppingCartIcon sx={{padding:"5px",background:"#008DFF",color:"#fff", borderRadius:"8px"}}/>
               </div>
-              <img  
+              <div  
                onClick={() => {
                 dispatch(favouriteAction.addItemToFavourite(
                   {
@@ -126,10 +128,11 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
                     price : product.price
                   }
                 ))
+                 setFill(product.id)
               }}
-              className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer"
-              src={require(`../../assets/products/${fill ?  `filled.png` : `unfill.png`}`)}
-              alt="unfill" />
+              className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer">
+              <Like fill={fill}/>
+              </div>
               {
                 product.new && ( <div className="p-1 bg-[#FF0000] text-[#fff] w-[65px] absolute top-4
                 flex justify-center rounded-[10px] text-[11px]">
