@@ -1,7 +1,7 @@
 import {FC, useState} from 'react'
 import { Routes, Route } from "react-router-dom";
-import AboutTop from './about/AboutTop';
-import {Navbar, Favourite, Sliders, Products,ProductModal,CategoryModal,OneClickModal, About,Footer} 
+import {Navbar, Favourite, Products,ProductModal,New,Clothes,Gadget,
+Books,Discount,Conditioner,CategoryModal,OneClickModal,About,Footer,} 
 from "./navigate"
 
 export type IProduct = {
@@ -26,8 +26,6 @@ const Menu : FC = () => {
     comment : '',
   })
 
-  const [open, setOpen] = useState<boolean>(false)
-
   return (
     <>
     <div className='bg-[#F4F7FD]'>
@@ -37,9 +35,14 @@ const Menu : FC = () => {
     <CategoryModal/>
     <ProductModal value={value}/>
      <Routes>
-     
-      <Route path='/' element={<Products setOpen={setOpen} value={value} setValue={setValue}/>}/>
+      <Route path='/' element={<Products value={value} setValue={setValue}/>}/>
       <Route path='/favourite' element={<Favourite/>}/>
+      <Route path='/new' element={<New setValue={setValue}/>}/>
+      <Route path='/clothes' element={<Clothes/>}/>
+      <Route path='/books' element={<Books/>}/>
+      <Route path='/discount' element={<Discount/>}/>
+      <Route path='/gadget' element={<Gadget/>}/>
+      <Route path='/conditioner' element={<Conditioner/>}/>
      </Routes>
     <About/>
     <Footer/>

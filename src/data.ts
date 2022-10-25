@@ -5,27 +5,27 @@ export interface INavigation {
 
 export const navigation : INavigation[] = [
     {
-        href : "/",
+        href : "/new",
         name : "Новинки"
     },
     {
-        href : "/",
+        href : "/clothes",
         name : "Одежды"
     },
     {
-        href : "/",
+        href : "/discount",
         name : "Скидки"
     },
     {
-        href : "/",
+        href : "/books",
         name : "Книги"
     },
     {
-        href : "/",
+        href : "/gadget",
         name : "Телефоны и гаджеты"
     },
     {
-        href : "/",
+        href : "/airconditioner",
         name : "Кондиционеры"
     }
 ]

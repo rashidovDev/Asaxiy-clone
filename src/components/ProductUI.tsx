@@ -1,25 +1,22 @@
-import { books, products } from "../../data"
+import { books, products } from "../data"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { IProduct as Props } from "../Menu";
+import { IProduct as Props } from "./Menu";
 import { useDispatch } from "react-redux";
-import { productAction } from "../store/Slices/productSlice";
-import { oneClickAction } from "../store/Slices/oneClickSlice";
-import { cartAction } from "../store/Slices/cartSlice";
+import { productAction } from "./store/Slices/productSlice";
+import { oneClickAction } from "./store/Slices/oneClickSlice";
+import { cartAction } from "./store/Slices/cartSlice"; 
 import {useState} from "react"
-import { favouriteAction } from "../store/Slices/favouriteSlice";
-import Star from "../Star";
-import Sliders from "../Sliders";
+import { favouriteAction } from "./store/Slices/favouriteSlice"; 
+import Star from "./Star"; 
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import AboutTop from "../about/AboutTop";
 import ReactPaginate from "react-paginate"
 
-
 interface IProps {
-  setValue: React.Dispatch<React.SetStateAction<Props>>
-  value : Props
+  setValue: React.Dispatch<React.SetStateAction<Props>>,
+  mode : boolean | string
 }
 
-const Products : React.FC <IProps> = ({setValue,value}) => {
+const ProductUI : React.FC <IProps> = ({setValue, mode}) => {
 
   const dispatch = useDispatch()
 
@@ -43,10 +40,8 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
   const changePage = ({selected} : any) => {
     setPageNumber(selected)
   }
-
   return (
      <>
-      <Sliders/>
     <div className='w-[90%] m-auto flex mt-5'>
         <div className='md:w-[23%] mr-5 pt-[70px] books 
         relative rounded-[10px] bg-white'>
@@ -63,7 +58,7 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
               <p className="absolute top-4 left-4 text-slate-500
               font-semibold text-[18px]">Книги</p>
               <img className="absolute top-2 right-2"
-              src={require("../../assets/products/logo1.png")} alt="logo1" />
+              src={require("../assets/products/logo1.png")} alt="logo1" />
         </div>
         <div className='md:w-[75%] grid grid-cols-4 gap-4 relative pb-[110px]'>
              
@@ -131,7 +126,7 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
                 ))
               }}
               className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer"
-              src={require(`../../assets/products/${fill ?  `filled.png` : `unfill.png`}`)}
+              src={require(`../assets/products/${fill ?  `filled.png` : `unfill.png`}`)}
               alt="unfill" />
              </div>
              ))}
@@ -150,9 +145,8 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
     </div>
         </div>
     </div>
-    <AboutTop/>
      </>
   )
 }
 
-export default Products
+export default ProductUI
