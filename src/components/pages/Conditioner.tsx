@@ -1,9 +1,21 @@
-import React from 'react'
+import { useState } from "react"
+import {ProductUI} from "../navigate"
+import { IProduct as Props } from "../Menu"
 
-const Conditioner = () => {
+interface IProps {
+  setValue: React.Dispatch<React.SetStateAction<Props>>
+}
+
+const Conditioner : React.FC<IProps> = ({setValue}) => {
+  const [mode, setMode] = useState<string>("conditioner")
   return (
-    <div>Conditioner</div>
+    <>
+      <ProductUI
+      setValue={setValue}
+      mode = {mode}
+      />
+    </>
   )
 }
 
-export default Conditioner
+export default Conditioner;

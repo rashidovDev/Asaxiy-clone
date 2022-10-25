@@ -1,7 +1,7 @@
 import {FC, useState} from 'react'
 import { Routes, Route } from "react-router-dom";
-import {Navbar, Favourite, Products,ProductModal,New,Clothes,Gadget,
-Books,Discount,Conditioner,CategoryModal,OneClickModal,About,Footer,} 
+import {Navbar, Favourite, Products,ProductModal,New,Clothes,Gadget,Computers,
+Books,Conditioner,Another,CategoryModal,OneClickModal,About,Footer,} 
 from "./navigate"
 
 export type IProduct = {
@@ -38,11 +38,12 @@ const Menu : FC = () => {
       <Route path='/' element={<Products value={value} setValue={setValue}/>}/>
       <Route path='/favourite' element={<Favourite/>}/>
       <Route path='/new' element={<New setValue={setValue}/>}/>
-      <Route path='/clothes' element={<Clothes/>}/>
-      <Route path='/books' element={<Books/>}/>
-      <Route path='/discount' element={<Discount/>}/>
-      <Route path='/gadget' element={<Gadget/>}/>
-      <Route path='/conditioner' element={<Conditioner/>}/>
+      <Route path='/clothes' element={<Clothes setValue={setValue}/>}/>
+      <Route path='/books' element={<Books setValue={setValue}/>}/>
+      <Route path='/laptop' element={<Computers setValue={setValue}/>}/>
+      <Route path='/another' element={<Another setValue={setValue}/>}/>
+      <Route path='/gadget' element={<Gadget setValue={setValue}/>}/>
+      <Route path='/airconditioner' element={<Conditioner setValue={setValue}/>}/>
      </Routes>
     <About/>
     <Footer/>

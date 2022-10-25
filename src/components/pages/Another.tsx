@@ -6,8 +6,8 @@ interface IProps {
   setValue: React.Dispatch<React.SetStateAction<Props>>
 }
 
-const Computers : React.FC<IProps> = ({setValue}) => {
-  const [mode, setMode] = useState<string>("gadget")
+const Another : React.FC<IProps> = ({setValue}) => {
+  const [mode, setMode] = useState<string>("another")
   return (
     <>
       <ProductUI
@@ -18,4 +18,4 @@ const Computers : React.FC<IProps> = ({setValue}) => {
   )
 }
 
-export default Computers;
+export default Another;

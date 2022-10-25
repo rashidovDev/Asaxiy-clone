@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const Computers : React.FC<IProps> = ({setValue}) => {
-  const [mode, setMode] = useState<string>("gadget")
+  const [mode, setMode] = useState<string>("laptop")
   return (
     <>
       <ProductUI

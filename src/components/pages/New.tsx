@@ -7,12 +7,12 @@ interface IProps {
 }
 
 const New : React.FC<IProps> = ({setValue}) => {
-  const [mode, setMode] = useState<boolean | string>(true)
+  const [isNew, setIsNew] = useState<boolean>(true)
   return (
     <>
       <ProductUI
       setValue={setValue}
-      mode = {mode}
+      isNew={isNew}
       />
     </>
   )

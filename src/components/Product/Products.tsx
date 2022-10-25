@@ -13,14 +13,12 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import AboutTop from "../about/AboutTop";
 import ReactPaginate from "react-paginate"
 
-
 interface IProps {
   setValue: React.Dispatch<React.SetStateAction<Props>>
   value : Props
 }
 
 const Products : React.FC <IProps> = ({setValue,value}) => {
-
   const dispatch = useDispatch()
 
   const [fill, setFill] = useState<boolean>(false)
@@ -65,7 +63,7 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
               <img className="absolute top-2 right-2"
               src={require("../../assets/products/logo1.png")} alt="logo1" />
         </div>
-        <div className='md:w-[75%] grid grid-cols-4 gap-4 relative pb-[110px]'>
+      <div className='md:w-[75%] grid grid-cols-4 gap-4 relative pb-[110px]'>
              
              {products.slice(pagesVisited, pagesVisited + usersPerPage)
              .map((product, idx) => (
@@ -73,8 +71,7 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
              <div key={idx + 1} className="rounded-[12px] bg-[#fff]  p-3 books relative md:h-[400px]">
               <img className="w-[70%] m-auto h-[160px]"
               src={product.image}
-               alt="product" />
-              
+               alt="product" />            
               <p className="text-[15px] font-semibold h-[50px] pt-3 truncate">{product.heading}</p>
               <div className="flex justify-start items-center ">
                 <div className="pr-3"><Star rate={product.rate}/></div>
@@ -133,6 +130,13 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
               className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer"
               src={require(`../../assets/products/${fill ?  `filled.png` : `unfill.png`}`)}
               alt="unfill" />
+              {
+                product.new && ( <div className="p-1 bg-[#FF0000] text-[#fff] w-[65px] absolute top-4
+                flex justify-center rounded-[10px] text-[11px]">
+               НОВИНКА
+               </div>)
+              }
+              
              </div>
              ))}
              <div className='absolute bottom-0 right-5'>

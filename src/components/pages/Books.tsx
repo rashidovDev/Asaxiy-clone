@@ -1,9 +1,21 @@
-import React from 'react'
+import { useState } from "react"
+import {ProductUI} from "../navigate"
+import { IProduct as Props } from "../Menu"
 
-const Books = () => {
+interface IProps {
+  setValue: React.Dispatch<React.SetStateAction<Props>>
+}
+
+const Books : React.FC<IProps> = ({setValue}) => {
+  const [mode, setMode] = useState<string>("book")
   return (
-    <div>Books</div>
+    <>
+      <ProductUI
+      setValue={setValue}
+      mode = {mode}
+      />
+    </>
   )
 }
 
-export default Books
+export default Books;

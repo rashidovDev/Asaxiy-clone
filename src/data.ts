@@ -13,16 +13,20 @@ export const navigation : INavigation[] = [
         name : "Одежды"
     },
     {
-        href : "/discount",
-        name : "Скидки"
+        href : "/laptop",
+        name : "Компютеры"
+    },
+    {
+        href : "/gadget",
+        name : "Телефоны и гаджеты"
     },
     {
         href : "/books",
         name : "Книги"
     },
     {
-        href : "/gadget",
-        name : "Телефоны и гаджеты"
+        href : "/another",
+        name : "Разное"
     },
     {
         href : "/airconditioner",
@@ -176,7 +180,7 @@ export const products : IProduct["product"] = [
         monthPrice : 1929000,
         comment : 7,
         like : false,
-        type : "new",
+        type : "gadget",
         new : false
     },
     {
@@ -224,7 +228,7 @@ export const products : IProduct["product"] = [
         monthPrice : 1929000,
         comment : 7,
         like : false,
-        type : "new",
+        type : "gadget",
         new : true
     },
     {
@@ -236,7 +240,7 @@ export const products : IProduct["product"] = [
         monthPrice : 58600,
         comment : 8,
         like : false,
-        type : "new",
+        type : "gadget",
         new : true
     },
     {
@@ -248,7 +252,7 @@ export const products : IProduct["product"] = [
         monthPrice : 22700,
         comment : 5,
         like : false,
-        type : "new",
+        type : "gadget",
         new : false
     },
     {
@@ -260,7 +264,7 @@ export const products : IProduct["product"] = [
         monthPrice : 93300,
         comment : 5,
         like : false,
-        type : "new",
+        type : "gadget",
         new : false
     },
     {
@@ -272,7 +276,7 @@ export const products : IProduct["product"] = [
         monthPrice : 287200,
         comment : 10,
         like : false,
-        type : "new",
+        type : "gadget",
         new : false
     },
     {
@@ -284,7 +288,7 @@ export const products : IProduct["product"] = [
         monthPrice : 11600,
         comment : 1,
         like : false,
-        type : "new",
+        type : "gadget",
         new : true
     },
     {
@@ -296,7 +300,7 @@ export const products : IProduct["product"] = [
         monthPrice : 77300,
         comment : 7,
         like : false,
-        type : "new",
+        type : "gadget",
         new : true
     },
     {
@@ -308,7 +312,7 @@ export const products : IProduct["product"] = [
         monthPrice : 137800,
         comment : 2,
         like : false,
-        type : "new",
+        type : "gadget",
         new : true
     },
     {
@@ -320,7 +324,7 @@ export const products : IProduct["product"] = [
         monthPrice : 63400,
         comment : 6,
         like : false,
-        type : "new",
+        type : "gadget",
         new : false
     },
     {
@@ -332,7 +336,7 @@ export const products : IProduct["product"] = [
         monthPrice : 297100,
         comment : 4,
         like : false,
-        type : "new",
+        type : "gadget",
         new : false
     },
     {
@@ -344,7 +348,7 @@ export const products : IProduct["product"] = [
         monthPrice : 119000,
         comment : 4,
         like : false,
-        type : "new",
+        type : "another",
         new : true
     },
     {
@@ -356,7 +360,7 @@ export const products : IProduct["product"] = [
         monthPrice : 1840700,
         comment : 4,
         like : false,
-        type : "new",
+        type : "laptop",
         new : false
     },
     {
@@ -368,7 +372,7 @@ export const products : IProduct["product"] = [
         monthPrice : 471200,
         comment : 5,
         like : false,
-        type : "new",
+        type : "laptop",
         new : false
     },
     {
@@ -380,7 +384,7 @@ export const products : IProduct["product"] = [
         monthPrice : 618500,
         comment : 3,
         like : false,
-        type : "new",
+        type : "laptop",
         new : false
     },
     {
@@ -392,7 +396,7 @@ export const products : IProduct["product"] = [
         monthPrice : 254800,
         comment : 3,
         like : false,
-        type : "new",
+        type : "gadget",
         new : true
     },
     {
@@ -404,7 +408,7 @@ export const products : IProduct["product"] = [
         monthPrice : 419700,
         comment : 4,
         like : false,
-        type : "new",
+        type : "laptop",
         new : true
     },
     {
@@ -416,7 +420,7 @@ export const products : IProduct["product"] = [
         monthPrice :4841000,
         comment : 2,
         like : false,
-        type : "new",
+        type : "conditioner",
         new : false
     },
     {
@@ -428,7 +432,7 @@ export const products : IProduct["product"] = [
         monthPrice : 647900,
         comment : 3,
         like : false,
-        type : "new",
+        type : "conditioner",
         new : false
     },
     {
@@ -440,7 +444,7 @@ export const products : IProduct["product"] = [
         monthPrice : 692100,
         comment : 1,
         like : false,
-        type : "new",
+        type : "conditioner",
         new : true
     },
     {
@@ -452,7 +456,7 @@ export const products : IProduct["product"] = [
         monthPrice : 647900,
         comment : 2,
         like : false,
-        type : "new",
+        type : "conditioner",
         new : false
     },
     {
@@ -464,7 +468,7 @@ export const products : IProduct["product"] = [
         monthPrice : 692100,
         comment : 1,
         like : false,
-        type : "new",
+        type : "conditioner",
         new : true
     },
 ]
@@ -599,4 +603,29 @@ export const paying = [
     id : 6,
     image : require("./assets/footer/6.png")
     }
+]
+
+
+interface ISort {
+    title : string,
+    value : string
+}
+
+export const sort : ISort[] = [
+    {
+        title : "Сначала по дешевле",
+        value : "min"
+    },
+    {
+        title : "Сначала по дороже",
+        value : "max"
+    },
+    {
+        title : "Рейтинг (начиная с низкого)",
+        value : "rateMin"
+    },
+    {
+        title : "Рейтинг (начиная с высокого)",
+        value : "rateMax"
+    },
 ]
