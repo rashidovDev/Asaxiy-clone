@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react'
 import { Routes, Route } from "react-router-dom";
 import {Navbar, Favourite, Products,ProductModal,New,Clothes,Gadget,Computers,
-Books,Conditioner,Another,CategoryModal,OneClickModal,About,Footer,Payment,Deliver} 
+Books,Conditioner,Another,CategoryModal,OneClickModal,About,Footer,Payment,Deliver,BottomIcons} 
 from "./navigate"
 
 export type IProduct = {
@@ -28,9 +28,9 @@ const Menu : FC = () => {
 
   return (
     <>
-    <div className='bg-[#F4F7FD]'>
+    <div className='bg-[#F4F7FD] relative'>
     <Navbar/>
-
+    <BottomIcons/>
     <OneClickModal/>
     <CategoryModal/>
     <ProductModal value={value}/>
@@ -49,6 +49,7 @@ const Menu : FC = () => {
      </Routes>
     <About/>
     <Footer/>
+   
     </div>
     </>
   )

@@ -17,7 +17,7 @@ const FooterCenter : React.FC = () => {
         </div>
       </div>
 
-      <div className='px-10'>
+      <div className='md:px-10'>
         <p className="text-[18px]">Для связи</p>
         <div>
           <p className='flex items-center'><span className='mr-2'><LocalPhoneIcon/></span><span>+998 71 200 01 05</span></p>
@@ -25,9 +25,11 @@ const FooterCenter : React.FC = () => {
           <p className='flex items-center'><span className='mr-2'><LocationOnIcon/></span><span>Чиланзар 3,Ташкент</span></p>
         </div>
       </div>
-      <div className='px-10 ml-32'>
+      <div className='md:px-10 md:ml-32'>
         <p  className="text-[18px]">Наш Facebook</p>
-        <img src={require("../../assets/about/facebook.png")} alt="facebook" />
+        <img 
+        className='w-[500px] md:w-[200px]'
+        src={require("../../assets/about/facebook.png")} alt="facebook" />
       </div>
     </div>
   )

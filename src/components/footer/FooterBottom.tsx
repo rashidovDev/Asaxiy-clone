@@ -6,14 +6,15 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const FooterBottom : React.FC = () => {
   return (
-    <div className=' text-[#fff] font-bold text-[14px]'>
-      <div className='flex justify-center items-center border-t border-b border-slate-400 py-3'>
-      <div className='flex pr-5'>
-          <p className='pr-3 '>Виды оплаты :</p>
+    <div>
+    <div className=' text-[#fff] font-bold text-[14px] '>
+      <div className='md:flex justify-center items-center border-t border-b border-slate-400 py-3'>
+      <div className='flex pr-5 items-center'>
+          <p className='md:pr-3'>Виды оплаты :</p>
           {
             paying.map((item, idx) => (
               <div key={idx}>
-              <img className='w-[55px] h-[30px] mr-1'
+              <img className='w-[55px] h-[30px]md:mr-1'
               src={item.image} alt="item" />
               </div>
             ))
@@ -30,6 +31,10 @@ const FooterBottom : React.FC = () => {
       </div>
       </div>
       <p className='text-center py-3 text-[16px] font-semibold'>2015-2022 Интернет-магазин asaxiy.uz: Бытовая техника и др. Доставка товаров осуществляется во все регионы. Все права защищены.</p>
+    </div>
+    <div>
+       
+    </div>
     </div>
   )
 }
