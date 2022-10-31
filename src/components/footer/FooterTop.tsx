@@ -7,7 +7,7 @@ import EventRepeatIcon from '@mui/icons-material/EventRepeat';
 const FooterTop : React.FC = () => {
   return (
     <div className='bg-[#fff] rounded-[35px] mt-[35px] p-[30px] shadow
-    grid grid-cols-4 gap-4 my-5
+    grid md:grid-cols-4 grid-cols-1 gap-4 my-5
     '>
           <div className='flex items-center'>
             <div>

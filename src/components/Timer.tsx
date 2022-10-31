@@ -6,7 +6,7 @@ const Timer = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const deadline : string = "October, 31, 2022";
+  const deadline : string = "November, 31, 2022";
 
   const getTime = (a : string) => {
     const time = Date.parse(deadline) - Date.now();
@@ -23,7 +23,7 @@ const Timer = () => {
   }, []);
 
   return (
-    <div className="flex items-center w-[300px] absolute bottom-[10px] left-[82px]">
+    <div className="flex items-center w-[300px] absolute md:bottom-[10px] bottom-[3px] md:left-[95px] left-[100px]">
         <p className='text-[#fff] bg-[#008DFF] mx-1 
         w-[32px] rounded-[5px] text-center p-[2px]'
         >{hours}</p>

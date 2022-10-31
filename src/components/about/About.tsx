@@ -5,7 +5,7 @@ import AboutTop from "./AboutTop"
 
 const About : React.FC = () => {
   return (
-    <div className="md:w-[90%] m-auto my-5">
+    <div className="w-[90%] m-auto my-5">
         <AboutCenter/>
         <AboutBottom/>
     </div>

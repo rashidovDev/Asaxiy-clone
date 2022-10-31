@@ -1,7 +1,7 @@
-import {FC, useState} from 'react'
+import React, {FC, useState} from 'react'
 import { Routes, Route } from "react-router-dom";
 import {Navbar, Favourite, Products,ProductModal,New,Clothes,Gadget,Computers,
-Books,Conditioner,Another,CategoryModal,OneClickModal,About,Footer,} 
+Books,Conditioner,Another,CategoryModal,OneClickModal,About,Footer,Payment,Deliver} 
 from "./navigate"
 
 export type IProduct = {
@@ -44,6 +44,8 @@ const Menu : FC = () => {
       <Route path='/another' element={<Another setValue={setValue}/>}/>
       <Route path='/gadget' element={<Gadget setValue={setValue}/>}/>
       <Route path='/airconditioner' element={<Conditioner setValue={setValue}/>}/>
+      <Route path='/payment' element={<Payment/>} />
+      <Route path='/deliver' element={<Deliver/>} />
      </Routes>
     <About/>
     <Footer/>

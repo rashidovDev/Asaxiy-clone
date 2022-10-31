@@ -7,13 +7,13 @@ interface IFill  {
 const Like : React.FC<IFill> = ({fill}) => {
   return (
     <>
-    {/* {products.map((item, idx) => (
+     {fill > 0 && 
           (
             <img 
             src={require("../../assets/products/filled.png")} 
             alt="heart" />
-        )
-    ))} */}
+          )
+          }
     </>
   )
 }

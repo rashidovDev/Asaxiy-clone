@@ -6,7 +6,7 @@ const AboutCenter : React.FC  = () => {
   var settings = {
     infinite: false,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     speed: 500,
     slidesToShow: 8,
     slidesToScroll: 1,
@@ -32,7 +32,7 @@ const AboutCenter : React.FC  = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1
         }
       }

@@ -4,7 +4,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const FooterCenter : React.FC = () => {
   return (
-    <div className='flex items-center justify-start text-[#fff] font-bold mb-3'>
+    <div className='md:flex items-center justify-start text-[#fff] font-bold mb-3'>
       <div  className='pr-10'>
         <p className="text-[18px]">Информация</p>
         <div>

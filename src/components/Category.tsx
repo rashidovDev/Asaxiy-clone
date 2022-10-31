@@ -1,9 +1,10 @@
+import React from "react"
 
 const Category = () => {
   return (
-    <div className="text-center text-[60px]">
-      I had no enough time to create this component
-    </div>
+      <div>
+        <img src={require("../assets/navbar/category.png")} alt="category" />
+      </div>
   )
 }
 
