@@ -4,7 +4,7 @@ import { RootState } from "../store"
 
 const Modal = () => {
 
-    const category = useSelector((state : RootState) => state.category.categoryIsVisible)
+    const category = useSelector((state : RootState) => state.modalSlice.categoryIsVisible)
          
   return (
     <div className={`fixed  top-[160px] left-0 bottom-0 right-0 z-10

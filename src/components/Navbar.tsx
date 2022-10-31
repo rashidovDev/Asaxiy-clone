@@ -15,21 +15,21 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 import { navigation } from '../data';
 import { useDispatch, useSelector } from 'react-redux';
-import { categoryAction } from './store/Slices/categorySlice';
 import Cart from './Cart/Cart';
 import Account from './Account';
+import { modalAction } from './store/Slices/ModalSlice';
 
 const Navbar : FC = () => {
 
   const favourites = useSelector((state : RootState) => state.favouriteSlice.favourites)
-  const category = useSelector((state : RootState)  => state.category.categoryIsVisible)
+  const category = useSelector((state : RootState)  => state.modalSlice.categoryIsVisible)
   const favouriteQuantity = useSelector((state : RootState) => state.favouriteSlice.totalFavourite)
   const totalQuantity = useSelector((state : RootState) => state.cartSlice.totalQuantity)
 
   const dispatch = useDispatch()
 
   const openCloseToggle = () => {
-    dispatch(categoryAction.toggle())
+    dispatch(modalAction.toggleCategory())
   }
 
   const [drop, setDrop] = useState<boolean>(false)

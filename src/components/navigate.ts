@@ -18,3 +18,7 @@ export {default as Another} from "./pages/Another"
 export {default as Payment} from "./pages/Payment"
 export {default as Deliver} from "./pages/Deliver"
 export {default as BottomIcons} from "./BottomIcons"
+export {default as NavMobile} from "./NavMobile"
+export {default as SidebarModal} from "./Modal/SidebarModal"
+export {default as Sidebar} from "./Sidebar"
+

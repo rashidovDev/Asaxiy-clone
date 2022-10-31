@@ -3,8 +3,6 @@ import { books, products } from "../data"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IProduct as Props } from "./Menu";
 import { useDispatch } from "react-redux";
-import { productAction } from "./store/Slices/productSlice";
-import { oneClickAction } from "./store/Slices/oneClickSlice";
 import { cartAction } from "./store/Slices/cartSlice"; 
 import {useState} from "react"
 import { favouriteAction } from "./store/Slices/favouriteSlice"; 
@@ -13,6 +11,7 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import ReactPaginate from "react-paginate"
 import { getSortData, getData } from './methods/getSortData';
 import MySelect from "./utils/selection/MySelect"
+import { modalAction } from './store/Slices/ModalSlice';
 
 
 interface IProps {
@@ -29,11 +28,11 @@ const ProductUI : React.FC <IProps> = ({setValue,mode,isNew}) => {
   const [fill, setFill] = useState<boolean>(false)
    
   const openOneClick = () => {
-    dispatch(oneClickAction.toggle())
+    dispatch(modalAction.toggleOneClick())
   }
 
   const openToggle = () => {
-    dispatch(productAction.toggle())
+    dispatch(modalAction.toggleProduct())
   }
 
   const newItem = getData(products,isNew,mode)

@@ -1,17 +1,17 @@
 import {useDispatch, useSelector} from "react-redux"
 import OneClick from "../OneClick"
 import { RootState } from "../store"
-import { oneClickAction } from "../store/Slices/oneClickSlice"
+import { modalAction } from "../store/Slices/ModalSlice"
 
 const Modal = () => {
 
   const dispatch = useDispatch()
 
   const closeToggle = () => {
-    dispatch(oneClickAction.toggle())
+    dispatch(modalAction.toggleOneClick)
   }
 
-  const oneClick = useSelector((state : RootState) => state.oneClick.oneClickIsVisible)
+  const oneClick = useSelector((state : RootState) => state.modalSlice.oneClickIsVisible)
          
   return (
     <div onClick={closeToggle}

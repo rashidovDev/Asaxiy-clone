@@ -2,8 +2,6 @@ import { books, products } from "../../data"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IProduct as Props } from "../Menu";
 import { useDispatch } from "react-redux";
-import { productAction } from "../store/Slices/productSlice";
-import { oneClickAction } from "../store/Slices/oneClickSlice";
 import { cartAction } from "../store/Slices/cartSlice";
 import {useState} from "react"
 import { favouriteAction } from "../store/Slices/favouriteSlice";
@@ -14,6 +12,7 @@ import AboutTop from "../about/AboutTop";
 import ReactPaginate from "react-paginate"
 import Like from "./Like";
 import React from "react"
+import { modalAction } from "../store/Slices/ModalSlice";
 
 interface IProps {
   setValue: React.Dispatch<React.SetStateAction<Props>>
@@ -24,14 +23,13 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
   const dispatch = useDispatch()
 
   const [fill, setFill] = useState<string | number>("")
-  console.log(fill)
 
   const openOneClick = () => {
-    dispatch(oneClickAction.toggle())
+    dispatch(modalAction.toggleOneClick())
   }
 
   const openToggle = () => {
-    dispatch(productAction.toggle())
+    dispatch(modalAction.toggleProduct())
   }
 
   const [pageNumber, setPageNumber] = useState<number>(0)

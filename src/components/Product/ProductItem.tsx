@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import {IProduct as Props} from "../Menu"
 import { cartAction } from '../store/Slices/cartSlice';
-import { productAction } from '../store/Slices/productSlice';
+import { modalAction } from '../store/Slices/ModalSlice';
 
 interface IProduct {
     value : Props,
@@ -12,7 +12,7 @@ const ProductItem : React.FC <IProduct> = ({value}) => {
   const dispatch = useDispatch();
 
   const closeToggle = () => {
-    dispatch(productAction.toggle())
+    dispatch(modalAction.toggleProduct())
   }
  
 const addToCart = () => {
@@ -30,7 +30,7 @@ const addToCart = () => {
     <>
            <div >
             <p className='font-semibold'>Купить {value.heading}</p>
-            <div className='grid grid-cols-4 gap-4 py-3'>
+            <div className='grid md:grid-cols-4  gap-4 py-3'>
               <div className='border w-[150px] p-3 shad text-center font-[400]
                rounded-[10px] border-slate-300 '>
                 <p>3 месяц</p>

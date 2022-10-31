@@ -1,8 +1,8 @@
 import {useDispatch, useSelector} from "react-redux"
 import { RootState } from "../store"
-import { productAction } from "../store/Slices/productSlice"
 import { IProduct as Props } from "../Menu"
 import ProductItem from "../Product/ProductItem"
+import { modalAction } from "../store/Slices/ModalSlice"
 
 interface IProps {
   value : Props
@@ -13,10 +13,10 @@ const Modal : React.FC<IProps> = ({value}) => {
     const dispatch = useDispatch()
 
     const closeToggle = () => {
-      dispatch(productAction.toggle())
+      dispatch(modalAction.toggleProduct())
     }
   
-    const product = useSelector((state : RootState) => state.product.productItemIsVisible)
+    const product = useSelector((state : RootState) => state.modalSlice.productItemIsVisible)
          
   return (
     <div onClick={closeToggle} className={`fixed bg-[rgba(0,0,0,.5)]  top-0 left-0 bottom-0 right-0 z-10

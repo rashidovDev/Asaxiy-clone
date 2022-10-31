@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 
 const BottomIcons : React.FC = () => {
   return (
-    <div className='md:hidden fixed z-50 w-[91%] bottom-0 bg-[#fff] pb-1 pt-2 '>
+    <div className='md:hidden fixed z-10 w-[100%] bottom-0 bg-[#fff] pb-1 pt-2 '>
         <div className='grid grid-cols-4 w-[95%] m-auto'>
         <Link className='no-underline text-[#555] flex flex-col items-center' to="/">
-         <HomeOutlinedIcon  sx={{ fontSize : "35px" }}/>
+         <HomeOutlinedIcon sx={{ fontSize : "35px" }}/>
         <p className='text-[14px]'>Главная</p>
         </Link>
         <Link className='no-underline text-[#555] flex flex-col items-center' to="/">

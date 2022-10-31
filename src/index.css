@@ -12,22 +12,69 @@ code {
     monospace;
 }
 
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* //NAVBAR */
+
+.nav-toggle {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nav-toggle > .bar {
+  margin-left: 10px;
+  position: relative;
+  width: 32px;
+  height: 4px;
+  background-color:#008DFF;
+}
+.nav-toggle > .bar::before,
+.nav-toggle > .bar::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  background-color:#008DFF;
+  border-radius: 2px;
+  transition: all 0.45s ease-in-out;
+}
+.nav-toggle > .bar::before {
+  width: 25px;
+  transform: translateY(-8px);
+  left: 0;
+}
+.nav-toggle > .bar::after {
+  width: 32px;
+  transform: translateY(8px);
+}
+.nav-toggle.open > .bar {
+  transform: translateX(-40px);
+  background: transparent;
+  transition: 0.5s ease;
+}
+.nav-toggle.open > .bar::before {
+  width: 32px;
+  transform: rotate(45deg) translate(26px, -26px);
+}
+.nav-toggle.open > .bar::after {
+  transform: rotate(-45deg) translate(26px, 26px);
+}
 .hg{
   border-bottom: 1px solid #999;
 }
-
 .books{
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-
 .shad{
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
-
 .cart{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -71,6 +118,9 @@ nav{
   background-color: #008DFF;
   color: #fff;
 }
+
+
+
 
 
 
