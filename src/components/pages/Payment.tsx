@@ -5,7 +5,7 @@ const Payment = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='flex justify-center items-center mt-10 mb-5'>
+        <div className='w-[90%] mx-auto flex justify-center items-center mb-5'>
             <div className='bg-[#fff] rounded-[15px] shadow py-3 px-5 w-[500px] my-2'>
                 <h1 className='mb-5 text-[#13306A]'>Оплата заказа</h1>
                 <div className='text-[#9D8E8E] font-[500]'>

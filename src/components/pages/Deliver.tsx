@@ -1,12 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Deliver = () => {
+const Deliver : React.FC = () => {
     const navigate = useNavigate()
   return (
     <div className='w-[90%] m-auto my-4'>
-        <div className='rounded-[15px] p-3 p-4 bg-[#fff] md:flex items-center shadow'>
-        <div className='w-[35%]'>
+        <div className='rounded-[15px] p-4 bg-[#fff] md:flex items-center shadow'>
+        <div className='md:w-[35%]'>
         <h1 className='text-[#13306A] mb-5'>Статус заказа</h1>
         <div className='text-[#9D8E8E] font-[500]'>
         <p className='text-[16px]'>Чтобы увидеть ваш заказ, пожалуйста, заполните необходимые поля. 
@@ -38,7 +38,7 @@ const Deliver = () => {
         </div>
         <div className='w-[65%] flex justify-center'>
             <img 
-            className='w-[70%]'
+            className='w-[70%] hidden md:inline'
             src={require("../../assets/navbar/tracking.png")} alt="deliver" />
         </div>
 

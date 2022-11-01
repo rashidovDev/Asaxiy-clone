@@ -14,7 +14,7 @@ const NavMobile = () => {
        <div className='w-[90%] m-auto py-2 flex justify-between items-center'>
        <div className={`nav-toggle ${sidebar && "open"}`}
          onClick={() => dispatch(modalAction.toggleSidebar())}>
-            <div className="bar z-50">
+            <div className="bar z-40">
             </div>
         </div>
         <div>

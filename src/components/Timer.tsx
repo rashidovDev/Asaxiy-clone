@@ -23,7 +23,7 @@ const Timer = () => {
   }, []);
 
   return (
-    <div className="flex items-center w-[300px] absolute md:bottom-[10px] bottom-[3px] md:left-[95px] left-[100px]">
+    <div className="flex items-center w-[300px] absolute md:bottom-[10px] bottom-[3px] md:left-[95px] left-[40px] -top-10">
         <p className='text-[#fff] bg-[#008DFF] mx-1 
         w-[32px] rounded-[5px] text-center p-[2px]'
         >{hours}</p>

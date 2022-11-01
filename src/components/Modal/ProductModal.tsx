@@ -20,9 +20,9 @@ const Modal : React.FC<IProps> = ({value}) => {
          
   return (
     <div onClick={closeToggle} className={`fixed bg-[rgba(0,0,0,.5)]  top-0 left-0 bottom-0 right-0 z-10
-    ${product ? `justify-center items-center flex` : `hidden`}`}>
-        <div className={`relative w-[750px] ${product && `h-[400px]`}
-        rounded-[15px] bg-white m-auto  p-3 flex`} onClick={(e) => e.stopPropagation()}>
+    ${product ? `md:justify-center justify-start items-center flex` : `hidden`}`}>
+        <div className={`relative  md:w-[750px] z-50 w-[350px] right-1 ${product && `h-[710px] md:h-[430px]`}
+        rounded-[15px] bg-white m-auto p-3 flex`} onClick={(e) => e.stopPropagation()}>
             <ProductItem
              value = {value}
              />

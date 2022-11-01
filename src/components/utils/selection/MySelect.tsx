@@ -29,14 +29,15 @@ const handleChange = (event: SelectChangeEvent) => {
 
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120, maxHeight: 10 }}>
+    <FormControl sx={{ m: 1, minWidth: 120, maxHeight: 10,outline:"none" }}>
         <Select
+          variant='standard'
           value={age}
           onChange={handleChange}
           displayEmpty
           sx={{height : "30px", fontSize : "12px"}}
         >
-          <MenuItem sx={{ fontSize : "13px", fontWeight:"bolder"}} value="">
+          <MenuItem sx={{ fontSize : "13px", fontWeight:"bolder", outline:"none" }} value="">
             Сортировка
           </MenuItem>
           {

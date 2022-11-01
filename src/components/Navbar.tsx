@@ -41,7 +41,7 @@ const Navbar : FC = () => {
   }
 
   return (
-    <nav className='bg-[#fff] hidden md:block'>
+    <nav className='bg-[#fff] hidden md:block md:mb-5'>
         {/* TOP */}
         <div className='hg'>
         <div className='flex items-center w-[90%] m-auto py-3 justify-between'>
