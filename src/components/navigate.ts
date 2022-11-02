@@ -22,5 +22,7 @@ export {default as SidebarModal} from "./Modal/SidebarModal"
 export {default as Sidebar} from "./Sidebar"
 export {default as Toast} from "./utils/toast/Toast"
 export {default as CartMobile} from "./Cart/CartMobile"
+export {default as BackToTop} from "./backToTop/BackToTop"
+
 
 

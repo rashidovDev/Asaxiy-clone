@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Routes, Route } from "react-router-dom";
 import {Navbar, Favourite, Products,ProductModal,New,Clothes,Gadget,Computers,
 Books,Conditioner,Another,CategoryModal,About,Sidebar,
-Footer,Payment,Deliver,BottomIcons,NavMobile,SidebarModal,CartMobile,Toast} 
+Footer,Payment,Deliver,BottomIcons,BackToTop, NavMobile,SidebarModal,CartMobile,Toast} 
 from "./navigate"
 import { modalAction } from './store/Slices/ModalSlice';
 
@@ -38,6 +38,7 @@ const Menu : FC = () => {
   return (
     <div>
     <Sidebar/>
+    <BackToTop/>
     <div className='bg-[#F4F7FD] relative'>
     <NavMobile/>
     <Toast/>
