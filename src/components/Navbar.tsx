@@ -8,7 +8,6 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { RootState } from './store';
-import React from "react"
 
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear'; 
@@ -51,7 +50,7 @@ const Navbar : FC = () => {
           </div>
         <div className='bg-[#008DFF] md:h-[38px] flex items-center md:w-[700px] rounded-[12px]'>
             <input type="text" className='bg-[#fff] outline-0 border-2 md:w-[605px]
-             rounded-[12px] border-[#008DFF] px-[10px] py-[5px]' placeholder='fefnjn'/>
+             rounded-[12px] border-[#008DFF] px-[10px] py-[5px]' placeholder='Поиск...'/>
             <p className='m-0 p-0 text-[#fff] cursor-pointer'><span><SearchIcon/></span> <span> Искать</span></p>
         </div>
         <div className='flex items-center'>
