@@ -13,11 +13,10 @@ import ReactPaginate from "react-paginate"
 import Like from "./Like";
 import React from "react"
 import { modalAction } from "../store/Slices/ModalSlice";
-
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { notify } from "../utils/toast/Toast";
 import { RootState } from "../store";
+import ProductType from "../ProductType";
 
 interface IProps {
   setValue: React.Dispatch<React.SetStateAction<Props>>
@@ -31,7 +30,6 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
   const favourites = useSelector((state : RootState) => state.favouriteSlice.favourites)
 
   const [fill, setFill] = useState<boolean>(false)
-  console.log(fill)
 
   const openOneClick = () => {
     dispatch(modalAction.toggleOneClick())
@@ -54,6 +52,7 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
   return (
      <>
     <Sliders/>
+    <ProductType/>
     <div className='w-[90%] m-auto md:flex mt-5'>
         <div className='md:w-[23%] w-[95%] m-auto mt-0 mb-3 md:mr-5 pt-[70px] books 
         relative rounded-[10px] bg-white'>

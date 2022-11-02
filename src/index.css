@@ -87,6 +87,9 @@ nav{
 .shadow1{
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+.shadowAccount{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
 .over{
   max-height:240px;
     overflow:hidden

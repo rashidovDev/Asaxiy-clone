@@ -4,12 +4,22 @@ import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './store';
+import Account from './Account';
+import Fade from 'react-reveal/Fade';
+import { modalAction } from './store/Slices/ModalSlice';
 
-const BottomIcons : React.FC = () => {
+const BottomIcons : React.FC = () => {   
  
   const total = useSelector((state : RootState) => state.cartSlice.totalQuantity)
+  const account = useSelector((state : RootState) => state.modalSlice.accountIsVisible)
+
+  const dispatch = useDispatch()
+
+  const openToggle = () => {
+    dispatch(modalAction.toggleOneClick())
+  }
 
   return (
     <div className='md:hidden fixed z-10 w-[100%] bottom-0 bg-[#fff] pb-1 pt-2 '>
@@ -32,15 +42,27 @@ const BottomIcons : React.FC = () => {
              text-[#fff] bg-[#008DFF]'>{total}</p>
            )
         }
-       
+
         </Link>
-        <Link className='no-underline text-[#555] flex flex-col items-center' to="/">
-         <PermIdentityOutlinedIcon sx={{ fontSize : "35px" }}/>
+        <Link 
+        onClick={(e) => {
+          e.stopPropagation()
+          openToggle()
+        }}
+        className='no-underline text-[#555] flex flex-col items-center' to="/">
+        <PermIdentityOutlinedIcon sx={{ fontSize : "35px" }}/>
         <p className='text-[14px]'>Кабинет</p>
         </Link>
         </div>
+        {account && (
+        <div className='absolute -top-[100px] right-[130px] bg-black'>
+        <Fade bottom>
+        <Account/>
+        </Fade>
+        </div>
+        )}
     </div>
   )
-}
+} 
 
 export default BottomIcons

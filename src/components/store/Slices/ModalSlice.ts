@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit"
 export interface CounterState {
     sidebarIsVisible : boolean,
     categoryIsVisible : boolean,
-    oneClickIsVisible : boolean,
+    accountIsVisible : boolean,
     productItemIsVisible : boolean
   }
 
   const initialState: CounterState = {
     sidebarIsVisible : false,
     categoryIsVisible : false,
-    oneClickIsVisible : false,
+    accountIsVisible : false,
     productItemIsVisible : false
   }
 
@@ -25,11 +25,11 @@ export const modalSlice = createSlice({
             state.categoryIsVisible = !state.categoryIsVisible
         },
         toggleOneClick(state) {
-            state.oneClickIsVisible = !state.oneClickIsVisible
+            state.accountIsVisible = !state.accountIsVisible
         },
         toggleProduct(state){
             state.productItemIsVisible = !state.productItemIsVisible
-        }
+        },
     }
 })
 

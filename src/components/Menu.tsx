@@ -1,9 +1,11 @@
 import React, {FC, useState} from 'react'
+import { useDispatch } from 'react-redux';
 import { Routes, Route } from "react-router-dom";
 import {Navbar, Favourite, Products,ProductModal,New,Clothes,Gadget,Computers,
-Books,Conditioner,Another,CategoryModal,OneClickModal,About,Sidebar,
+Books,Conditioner,Another,CategoryModal,About,Sidebar,
 Footer,Payment,Deliver,BottomIcons,NavMobile,SidebarModal,CartMobile,Toast} 
 from "./navigate"
+import { modalAction } from './store/Slices/ModalSlice';
 
 export type IProduct = {
   id : number | string,
@@ -27,15 +29,21 @@ const Menu : FC = () => {
     comment : '',
   })
 
+  const dispatch = useDispatch()
+
+  const closeAccount = () => {
+    dispatch(modalAction.toggleOneClick())
+  }
+  
+
   return (
-    <>
+    <div onClick={closeAccount}>
     <Sidebar/>
-    <Toast/>
     <div className='bg-[#F4F7FD] relative'>
     <NavMobile/>
+    <Toast/>
     <Navbar/>
     <BottomIcons/>
-    <OneClickModal/>
     <SidebarModal/>
     <CategoryModal/>
     <ProductModal value={value}/>
@@ -57,7 +65,7 @@ const Menu : FC = () => {
     <Footer/>
    
     </div>
-    </>
+    </div>
   )
 }
 

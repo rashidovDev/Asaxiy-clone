@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "./store"
 import { cartAction } from "./store/Slices/cartSlice"
 import { favouriteAction } from "./store/Slices/favouriteSlice"
-import MySelect from "./utils/selection/MySelect"
+import { notify } from "./utils/toast/Toast"
 
 const Favourite : React.FC = () => {
 
@@ -41,6 +41,7 @@ const Favourite : React.FC = () => {
                 <div className="flex flex-col">
                 <button 
                 onClick={() => {
+                  notify("Товар добавлен в корзину")
                   dispatch(cartAction.addItemToCart({
                     id : favourite.id,
                     heading : favourite.heading,
@@ -50,7 +51,10 @@ const Favourite : React.FC = () => {
                 }}
                 className="py-[7px] px-[20px] text-[#fff] rounded-[15px]  bg-[#008DFF] mb-[10px]">Добавить в корзину</button>
                 <button 
-                onClick={() => dispatch(favouriteAction.deleteItem(favourite.id))}
+                onClick={() => {
+                  dispatch(favouriteAction.deleteItem(favourite.id))
+                  notify("Успешно удален из избранного")
+                }}
                 className="py-[7px] px-[20px] text-[#fff] rounded-[15px]  bg-[#FE7300] mb-[10px] ">Удалить</button>
                 </div>
               </div>
