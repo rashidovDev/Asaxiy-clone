@@ -629,3 +629,42 @@ export const sort : ISort[] = [
         value : "rateMax"
     },
 ]
+
+interface IProductType {
+    href : string,
+    image : any,
+    title : string
+}
+
+export const productType : IProductType[] = [
+    {
+        href : "/laptop",   
+        image : require("./assets/pages/c_pc.png"),
+        title : "Компютеры"
+    },
+    {
+        href : "/clothes",
+        image : require("./assets/pages/shirt.png"),
+        title : "Одежды"
+    },
+    {
+        href : "/books",
+        image : require("./assets/pages/c_book.png"),
+        title : "Книги"
+    },
+    {
+        href : "/airconditioner",
+        image : require("./assets/pages/c_mach.png"),
+        title : "Кондиционеры"
+    },
+    {
+        href : "/gadget",
+        image : require("./assets/pages/c_ph.png"),
+        title : "Телефоны и гаджеты"
+    },
+    {
+        href : "/another",
+        image : require("./assets/pages/c_kitch.png"),
+        title : "Разное"
+    },
+]

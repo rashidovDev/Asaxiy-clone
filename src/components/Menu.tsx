@@ -34,10 +34,9 @@ const Menu : FC = () => {
   const closeAccount = () => {
     dispatch(modalAction.toggleOneClick())
   }
-  
 
   return (
-    <div onClick={closeAccount}>
+    <div>
     <Sidebar/>
     <div className='bg-[#F4F7FD] relative'>
     <NavMobile/>
