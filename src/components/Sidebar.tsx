@@ -16,6 +16,7 @@ import { modalAction } from './store/Slices/ModalSlice';
 const Sidebar = () => {
 
   const sidebar = useSelector((state : RootState) => state.modalSlice.sidebarIsVisible)
+  const totalFavourite = useSelector(( state : RootState) => state.favouriteSlice.totalFavourite)
 
   const dispatch = useDispatch()
 
@@ -40,7 +41,10 @@ const Sidebar = () => {
         </Link>
         <Link onClick={closeSidebar} className='no-underline text-[#555] flex p-2  ' to="/favourite">
         <div><FavoriteBorderIcon sx={{fontSize : "30px"}}/></div>
-        <div><p className='pl-3 font-semibold text-[15px] pt-1'>Избранное</p></div>
+        <div><p className='pl-3 font-semibold text-[15px] pt-1 flex items-center'><span>Избранное</span>{totalFavourite > 0 && (
+        <span className='w-[16px] h-[16px] flex justify-center ml-1 items-center rounded-full text-[12px]
+        text-[#fff] bg-[#008DFF]'>{totalFavourite}</span>
+        )} </p></div>
         </Link>
         <Link onClick={closeSidebar} className='no-underline text-[#555] flex p-2  ' to="/new">
         <div><CardGiftcardOutlinedIcon sx={{fontSize : "30px"}}/></div>

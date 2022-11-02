@@ -1,19 +1,25 @@
-import React from 'react'
-import {products} from "../../data"
+import React, { useState } from 'react'
 
 interface IFill  {
-    fill : number | string
+    fill : boolean
 }
+
+
 const Like : React.FC<IFill> = ({fill}) => {
+
+  const [isRed, setIsRed] = useState<boolean>(fill)
+
+  const changeCase = () => {
+    setIsRed(!isRed)
+  }
+
   return (
-    <>
-     {fill > 0 && 
-          (
+    <> 
             <img 
-            src={require("../../assets/products/filled.png")} 
-            alt="heart" />
-          )
-          }
+            className='w-[30px]'
+            onClick={changeCase}
+            src={require(`../../assets/products/${isRed ? `filled.png` : `unfill.png`}`)} 
+            alt="heart"/> 
     </>
   )
 }

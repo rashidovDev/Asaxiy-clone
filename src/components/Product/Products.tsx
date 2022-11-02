@@ -1,7 +1,7 @@
 import { books, products } from "../../data"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IProduct as Props } from "../Menu";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../store/Slices/cartSlice";
 import {useState} from "react"
 import { favouriteAction } from "../store/Slices/favouriteSlice";
@@ -14,15 +14,24 @@ import Like from "./Like";
 import React from "react"
 import { modalAction } from "../store/Slices/ModalSlice";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { notify } from "../utils/toast/Toast";
+import { RootState } from "../store";
+
 interface IProps {
   setValue: React.Dispatch<React.SetStateAction<Props>>
   value : Props
 }
 
 const Products : React.FC <IProps> = ({setValue,value}) => {
+
   const dispatch = useDispatch()
 
-  const [fill, setFill] = useState<string | number>("")
+  const favourites = useSelector((state : RootState) => state.favouriteSlice.favourites)
+
+  const [fill, setFill] = useState<boolean>(false)
+  console.log(fill)
 
   const openOneClick = () => {
     dispatch(modalAction.toggleOneClick())
@@ -97,7 +106,9 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
               }}
               className="bg-[#00CD98] mr-3 rounded-[10px] p-2 text-[12px] w-[90%] md:w-[120px]
               text-[#fff] md:mb-0 mb-2 ">Рассрочка</button>
-              <button onClick={openOneClick}
+              <button onClick={() => {
+                notify("Успешно добавлено")
+              }}
               className="bg-[#008DFF] text-[12px] rounded-[10px] p-2 text-[#fff] md:w-[120px] w-[90%] md:mb-0 mb-2"
               >Купить в 1 клик</button>
               </div>
@@ -111,6 +122,7 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
                     price : product.price,
                   }
                 ))
+                notify("Товар добавлен в корзину")
               }}
               className="absolute top-3 right-3 cursor-pointer">
               <ShoppingCartIcon sx={{padding:"5px",background:"#008DFF",color:"#fff", borderRadius:"8px"}}/>
@@ -125,10 +137,9 @@ const Products : React.FC <IProps> = ({setValue,value}) => {
                     price : product.price
                   }
                 ))
-                 setFill(product.id)
               }}
               className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer">
-              <Like fill={fill}/>
+              <Like fill={favourites.findIndex( fav => fav.id === product.id) !== -1}/>
               </div>
               {
                 product.new && ( <div className="p-1 bg-[#FF0000] text-[#fff] w-[65px] absolute top-4

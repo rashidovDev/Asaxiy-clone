@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import {IProduct as Props} from "../Menu"
 import { cartAction } from '../store/Slices/cartSlice';
 import { modalAction } from '../store/Slices/ModalSlice';
+import { notify } from '../utils/toast/Toast';
 
 interface IProduct {
     value : Props,
@@ -69,6 +70,7 @@ const addToCart = () => {
               <button
               onClick={() => {
                 addToCart()
+                notify("Товар добавлен в корзину")
                 closeToggle()
               }}
                className='p-3 bg-[#008DFF] w-full md:w-[120px] text-[#fff] rounded-[10px]'>ДОБАВИТЬ КОРЗИНУ</button>

@@ -2,7 +2,7 @@ import React from 'react';
 import { books, products } from "../data"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IProduct as Props } from "./Menu";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "./store/Slices/cartSlice"; 
 import {useState} from "react"
 import { favouriteAction } from "./store/Slices/favouriteSlice"; 
@@ -12,6 +12,9 @@ import ReactPaginate from "react-paginate"
 import { getSortData, getData } from './methods/getSortData';
 import MySelect from "./utils/selection/MySelect"
 import { modalAction } from './store/Slices/ModalSlice';
+import Like from './Product/Like';
+import { RootState } from './store';
+import { notify } from './utils/toast/Toast';
 
 
 interface IProps {
@@ -26,6 +29,8 @@ const ProductUI : React.FC <IProps> = ({setValue,mode,isNew}) => {
   const dispatch = useDispatch()
 
   const [fill, setFill] = useState<boolean>(false)
+
+  const favourites = useSelector((state : RootState) => state.favouriteSlice.favourites)
    
   const openOneClick = () => {
     dispatch(modalAction.toggleOneClick())
@@ -126,11 +131,12 @@ const ProductUI : React.FC <IProps> = ({setValue,mode,isNew}) => {
                     price : product.price,
                   }
                 ))
+                notify("Товар добавлен в корзину")
               }}
               className="absolute top-3 right-3 cursor-pointer">
               <ShoppingCartIcon sx={{padding:"5px",background:"#008DFF",color:"#fff", borderRadius:"8px"}}/>
               </div>
-              <img  
+              <div  
                onClick={() => {
                 dispatch(favouriteAction.addItemToFavourite(
                   {
@@ -141,9 +147,9 @@ const ProductUI : React.FC <IProps> = ({setValue,mode,isNew}) => {
                   }
                 ))
               }}
-              className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer"
-              src={require(`../assets/products/${fill ?  `filled.png` : `unfill.png`}`)}
-              alt="unfill" />
+              className = "w-[20px] h-[20px] absolute top-12 right-4 cursor-pointer">
+              <Like fill={favourites.findIndex( fav => fav.id === product.id) !== -1}/>
+              </div>
               {
                 product.new && ( <div className="p-1 bg-[#FF0000] text-[#fff] w-[65px] absolute top-4
                 flex justify-center rounded-[10px] text-[11px]">
@@ -174,3 +180,4 @@ const ProductUI : React.FC <IProps> = ({setValue,mode,isNew}) => {
 }
 
 export default ProductUI
+ 

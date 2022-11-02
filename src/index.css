@@ -119,6 +119,24 @@ nav{
   color: #fff;
 }
 
+.toast-message {
+  margin: 0;
+  background:darkblue;
+  color: #fff;
+  font-size: 16px;
+  width: 280px;
+  border-radius: 20px;
+}
+
+@media (max-width : 700px) {
+  .toast-message {
+    width: 240px;
+    margin: 20px;
+  }
+}
+
+
+
 
 
 
