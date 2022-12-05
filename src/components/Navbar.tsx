@@ -54,7 +54,6 @@ const Navbar : FC = () => {
             <p className='m-0 p-0 text-[#fff] cursor-pointer'><span><SearchIcon/></span> <span> Искать</span></p>
         </div>
         <div className='flex items-center'>
-           
             <Link to="/payment" className='flex flex-col no-underline items-center cursor-pointer  ml-3'>
             <CreditCardOutlinedIcon sx={{fontSize : "40px", color:"#333"}}/>
             <Link className='text-[15px] no-underline' to="/payment">
