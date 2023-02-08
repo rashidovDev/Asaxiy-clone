@@ -7,7 +7,6 @@ const NavMobile = () => {
 
   const dispatch = useDispatch()
   const sidebar = useSelector((state : RootState) => state.modalSlice.sidebarIsVisible)
-  console.log(sidebar)
 
   return (
     <div className='md:hidden mb-3 bg-white '>

@@ -61,9 +61,8 @@ const Menu : FC = () => {
       <Route path='/payment' element={<Payment/>} />
       <Route path='/deliver' element={<Deliver/>} />
      </Routes>
-    <About/>
-    <Footer/>
-   
+     <About/>
+     <Footer/>
     </div>
     </div>
   )

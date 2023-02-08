@@ -1,11 +1,10 @@
 import {FC, useEffect, useState} from "react"
 import PulseLoader from "react-spinners/PulseLoader";
-
 import Menu from "./components/Menu"
 
 const App : FC = () => {
+  
   const [loader, setLoader] = useState(false)
-
   useEffect(() => {
     setLoader(true)
     setTimeout(() => {
@@ -21,7 +20,8 @@ return (
               <PulseLoader className='' color={"#008DFF"} loading={loader} size={20} />
       </div>
       :
-  <Menu/>}
+      <Menu/>
+  }
   </>
       
   )
