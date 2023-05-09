@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 
 const Timer = () => {
@@ -6,7 +5,7 @@ const Timer = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const deadline : string = "November, 31, 2022";
+  const deadline : string = "August,12, 2023";
 
   const getTime = (a : string) => {
     const time = Date.parse(deadline) - Date.now();
@@ -18,7 +17,6 @@ const Timer = () => {
 
   useEffect(() => {
     const interval = setInterval(() => getTime(deadline), 1000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -35,7 +33,6 @@ const Timer = () => {
         <p className='text-[#fff] bg-[#008DFF]  mx-1
         w-[32px] rounded-[5px] text-center p-[2px]'
         >{seconds}</p>
-
     </div>
   );
 };

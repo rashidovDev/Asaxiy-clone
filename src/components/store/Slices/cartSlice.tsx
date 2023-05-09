@@ -17,7 +17,6 @@ export interface CounterState {
     changed? : boolean,
     quantity? : number
   }
-
    const initialState: CounterState = {
     items: [],
     totalQuantity: 0,

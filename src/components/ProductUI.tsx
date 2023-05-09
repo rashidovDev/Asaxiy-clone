@@ -178,6 +178,5 @@ const ProductUI : React.FC <IProps> = ({setValue,mode,isNew}) => {
      </>
   )
 }
-
-export default ProductUI
+export default ProductUI;
  

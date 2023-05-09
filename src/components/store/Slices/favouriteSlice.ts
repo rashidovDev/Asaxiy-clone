@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {IProducts} from "./cartSlice"
 
-
  interface IFavourite {
     favourites : IProducts["product"],
     totalFavourite : number,
@@ -54,7 +53,6 @@ const favouriteSlice = createSlice({
 
 export const favouriteAction = favouriteSlice.actions;
 export default favouriteSlice.reducer;
-
 
 // reducers: {
 //     addItemToCart(state : CounterState, action : PayloadAction<any>){
